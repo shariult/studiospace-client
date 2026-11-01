@@ -12,12 +12,12 @@ function CompanyLogo(props: CompanyLogoProps) {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-2 text-md font-title ${className ? className : ""}`}
+      className={`flex items-center gap-2 text-sm md:text-md font-title ${className ? className : ""}`}
     >
-      <LogoSvg className="w-8 text-primary" />
+      <LogoSvg className="w-6 md:w-8 text-primary" />
       <p className="flex flex-col">
         <span className="font-extrabold uppercase">Studio</span>
-        <span className="-mt-1 text-gray-700 uppercase text-xs tracking-[0.4rem]">
+        <span className="-mt-1 text-gray-700 uppercase text-xs tracking-[0.2rem] md:tracking-[0.4rem]">
           Space
         </span>
       </p>

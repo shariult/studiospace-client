@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 
 async function Home() {
   return (
-    <Container>
+    <Container el={"header"}>
       <h1>StudioSpace Client</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa error
