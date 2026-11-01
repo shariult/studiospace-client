@@ -1,0 +1,28 @@
+import React from "react";
+import Link, { LinkProps } from "next/link";
+import { LogoSvg } from "../SVGIcons";
+
+type CompanyLogoProps = {
+  children?: React.ReactNode;
+  className?: string;
+} & LinkProps;
+
+function CompanyLogo(props: CompanyLogoProps) {
+  const { className, href } = props;
+  return (
+    <Link
+      href={href}
+      className={`flex items-center gap-2 text-md font-title ${className ? className : ""}`}
+    >
+      <LogoSvg className="w-8 text-primary" />
+      <p className="flex flex-col">
+        <span className="font-extrabold uppercase">Studio</span>
+        <span className="-mt-1 text-gray-700 uppercase text-xs tracking-[0.4rem]">
+          Space
+        </span>
+      </p>
+    </Link>
+  );
+}
+
+export default CompanyLogo;
