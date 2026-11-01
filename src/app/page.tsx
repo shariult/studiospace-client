@@ -1,4 +1,7 @@
-function Home() {
+import { delay } from "@/lib/utils";
+
+async function Home() {
+  await delay(3000);
   return (
     <main>
       <h1>StudioSpace Client</h1>
