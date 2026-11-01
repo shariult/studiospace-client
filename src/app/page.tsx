@@ -1,6 +1,8 @@
+import Container from "@/components/ui/Container";
+
 async function Home() {
   return (
-    <main>
+    <Container>
       <h1>StudioSpace Client</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa error
@@ -8,7 +10,7 @@ async function Home() {
         accusantium, officiis ullam, culpa sunt delectus distinctio illum nam
         amet!
       </p>
-    </main>
+    </Container>
   );
 }
 

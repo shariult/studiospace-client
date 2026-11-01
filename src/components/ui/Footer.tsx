@@ -6,7 +6,7 @@ import CompanyLogo from "./CompanyLogo";
 function Footer() {
   return (
     <footer className="bg-base-200 border-t border-base-300">
-      <div className="max-w-300 mx-auto px-6 py-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="max-w-330 mx-auto px-6 py-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
           <CompanyLogo href={"/"} />
           <p className="text-sm opacity-70">
