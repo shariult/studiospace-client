@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { LogoSvg } from "../SVGIcons";
 import { PiTwitterLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
 import CompanyLogo from "./CompanyLogo";
+import Container from "./Container";
+
 function Footer() {
   return (
     <footer className="bg-base-200 border-t border-base-300 mt-20">
-      <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <Container boxClassName="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
           <CompanyLogo href={"/"} />
           <p className="text-sm opacity-70">
@@ -17,7 +18,7 @@ function Footer() {
 
         <div>
           <h6 className="footer-title">Quick Links</h6>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm text-gray-700">
             <li>
               <Link className="link link-hover" href="/">
                 Home
@@ -48,7 +49,7 @@ function Footer() {
 
         <div>
           <h6 className="footer-title">Popular Categories</h6>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm text-gray-700">
             <li>
               <Link
                 className="link link-hover"
@@ -136,7 +137,9 @@ function Footer() {
             </form>
           </div>
         </div>
-      </div>
+      </Container>
+
+      {/* copyright */}
       <div className="border-t border-base-300 py-4 text-center text-xs opacity-70">
         &copy; 2026 StudioSpace. All rights reserved. · Terms of Service ·
         Privacy Policy
