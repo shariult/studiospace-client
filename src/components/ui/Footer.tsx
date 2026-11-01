@@ -2,12 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { PiTwitterLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
 import CompanyLogo from "./CompanyLogo";
-import Container from "./Container";
 
 function Footer() {
   return (
-    <footer className="bg-base-200 border-t border-base-300 mt-20">
-      <Container boxClassName="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-base-200 border-t border-base-300">
+      <div className="max-w-300 mx-auto px-6 py-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
           <CompanyLogo href={"/"} />
           <p className="text-sm opacity-70">
@@ -99,21 +98,21 @@ function Footer() {
             <div className="flex gap-2">
               <Link
                 href="#"
-                className="btn btn-circle btn-ghost p-2 border border-base-300"
+                className="btn btn-circle btn-ghost p-2 border border-gray-300"
                 aria-label="X"
               >
                 <PiTwitterLogo className="text-lg" />
               </Link>
               <Link
                 href="#"
-                className="btn btn-circle btn-ghost p-2 border border-base-300"
+                className="btn btn-circle btn-ghost p-2 border border-gray-300"
                 aria-label="Instagram"
               >
                 <PiInstagramLogo className="text-lg" />
               </Link>
               <Link
                 href="#"
-                className="btn btn-circle btn-ghost p-2 border border-base-300"
+                className="btn btn-circle btn-ghost p-2 border border-gray-300"
                 aria-label="YouTube"
               >
                 <PiYoutubeLogo className="text-lg" />
@@ -137,7 +136,7 @@ function Footer() {
             </form>
           </div>
         </div>
-      </Container>
+      </div>
 
       {/* copyright */}
       <div className="border-t border-base-300 py-4 text-center text-xs opacity-70">

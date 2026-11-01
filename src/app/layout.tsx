@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <Navbar />
-        <main>{children}</main>
+        <main className="min-h-[60vh]">{children}</main>
         <Footer />
       </body>
     </html>
