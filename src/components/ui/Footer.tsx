@@ -132,7 +132,9 @@ function Footer() {
                 className="input input-bordered join-item w-full"
                 placeholder="you@email.com"
               />
-              <button className="btn btn-primary join-item">Join</button>
+              <button className="btn bg-primary text-primary-content hover:bg-primary-hover join-item">
+                Join
+              </button>
             </form>
           </div>
         </div>
