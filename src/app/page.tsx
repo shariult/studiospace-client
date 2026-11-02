@@ -1,12 +1,13 @@
 import Hero from "@/components/layout/homepage/Hero";
-import MySwiper from "@/components/MySwiper";
-import Container from "@/components/ui/Container";
-import { SwiperSlide } from "swiper/react";
+import SectionCategories from "@/components/layout/homepage/SectionCategories";
+import SectionFeatured from "@/components/layout/homepage/SectionFeatured";
 
 async function Home() {
   return (
     <>
       <Hero />
+      <SectionFeatured />
+      <SectionCategories />
     </>
   );
 }

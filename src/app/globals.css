@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @plugin "daisyui";
 
 @theme inline {
@@ -8,13 +9,33 @@
   --color-primary-hover: oklch(21% 0.034 264.665);
   --color-primary-content: #eee;
 }
-@layer components {
-}
+
 @layer utilities {
+  .heading-2 {
+    @apply text-3xl leading-[1.2] max-w-[26ch];
+  }
+  .heading-sub {
+    @apply text-gray-400 uppercase text-xs tracking-[0.4rem];
+  }
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-300;
+  }
+  .btn-box {
+    @apply flex gap-4;
+  }
+  .btn-fill-primary {
+    @apply btn bg-primary border-primary text-primary-content hover:bg-primary-hover hover:border-primary-hover shadow-none;
+  }
+  .btn-outline-white {
+    @apply btn btn-outline border-primary-content text-primary-content hover:bg-primary-hover hover:border-primary-hover hover:text-primary-content shadow-none;
+  }
+}
+
+@layer components {
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-inter), sans-serif;
 }
 
 h1,

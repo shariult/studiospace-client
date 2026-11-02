@@ -39,8 +39,8 @@
   background-image:
     linear-gradient(
       to right,
-      rgba(198, 40, 40, 0.6) 40%,
-      rgba(198, 40, 40, 0.3)
+      rgba(198, 40, 40, 0.68) 40%,
+      rgba(198, 40, 40, 0.4)
     ),
     url(/img/hero01.webp);
 }
@@ -48,8 +48,8 @@
   background-image:
     linear-gradient(
       to right,
-      rgba(198, 40, 40, 0.6) 40%,
-      rgba(198, 40, 40, 0.3)
+      rgba(198, 40, 40, 0.68) 40%,
+      rgba(198, 40, 40, 0.4)
     ),
     url(/img/hero02.webp);
 }
@@ -57,8 +57,8 @@
   background-image:
     linear-gradient(
       to right,
-      rgba(198, 40, 40, 0.6) 40%,
-      rgba(198, 40, 40, 0.3)
+      rgba(198, 40, 40, 0.68) 40%,
+      rgba(198, 40, 40, 0.4)
     ),
     url(/img/hero03.webp);
 }

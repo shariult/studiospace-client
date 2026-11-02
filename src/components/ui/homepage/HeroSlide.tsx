@@ -14,22 +14,16 @@ function HeroSlide(props: HeroSlideProps) {
       className={`max-w-330 h-full mx-auto px-6 flex flex-col justify-center ${className ? className : ""}`}
       {...rest}
     >
-      <p className="px-4 py-1 mb-4 uppercase text-xs tracking-widest border border-gray-50 rounded-full self-start">
+      <p className="inline-block mb-4 px-4 py-1 text-xs uppercase text-gray-50 tracking-[0.2rem] border border-gray-50 rounded-full self-start">
         Creative Studio Rental
       </p>
       <h1 className="text-6xl max-w-[16ch] capitalize">{title}</h1>
       <p className="max-w-[40ch] mb-8">{subTitle}</p>
-      <div className="flex gap-4">
-        <Link
-          href={"/studios"}
-          className="btn bg-primary border-primary text-primary-content hover:bg-primary-hover hover:border-primary-hover shadow-none"
-        >
+      <div className="btn-box">
+        <Link href={"/studios"} className="btn-fill-primary">
           Explore Studios
         </Link>
-        <Link
-          href={"/add-studio"}
-          className="btn hover:bg-primary-hover hover:border-primary-hover hover:text-primary-content shadow-none"
-        >
+        <Link href={"/add-studio"} className="btn-outline-white">
           Host Your Space
         </Link>
       </div>

@@ -3,8 +3,6 @@
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 import MySwiper from "@/components/MySwiper";
-import Image from "next/image";
-import Link from "next/link";
 import HeroSlide from "@/components/ui/homepage/HeroSlide";
 
 function Hero() {
