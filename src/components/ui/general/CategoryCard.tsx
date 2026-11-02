@@ -13,7 +13,7 @@ function CategoryCard(props: CategoryCardProps) {
   return (
     <Link
       href={href}
-      className={`bg-gray-50 p-6 shadow rounded-lg hover:scale-105 ${className ? className : ""}`}
+      className={`bg-gray-50 p-6 shadow rounded-md hover:scale-105 ${className ? className : ""}`}
       key={data.id}
       {...rest}
     >

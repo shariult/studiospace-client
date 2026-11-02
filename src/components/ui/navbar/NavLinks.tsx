@@ -15,7 +15,7 @@ function NavLinks() {
         </Link>
       </li>
       <li>
-        <Link className="text-gray-700 text-sm" href="/#how">
+        <Link className="text-gray-700 text-sm" href="/#steps">
           How It Works
         </Link>
       </li>
