@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -13,18 +13,32 @@ import {
 } from "react-icons/pi";
 import { authClient } from "@/lib/authClient";
 import UserDemoImg from "../user/UserDemoImg";
+import Loading from "@/components/Loading";
 
-function NavEnd() {
+type NavEndProps = {
+  className?: string;
+} & ComponentPropsWithoutRef<"div">;
+
+function NavEnd(props: NavEndProps) {
   const { data, error, isPending } = authClient.useSession();
+  const { className, ...rest } = props;
 
   async function signOutHandler() {
     await authClient.signOut();
     redirect("/");
   }
 
-  if (!data && !isPending) {
+  if (isPending) {
     return (
       <div className="navbar-end">
+        <Loading className="flex gap-2 items-center" />
+      </div>
+    );
+  }
+
+  if (!data && !isPending) {
+    return (
+      <div className={`navbar-end ${className ? className : ""}`} {...rest}>
         <div className={`flex flex-wrap sm:flex-nowrap gap-1 `}>
           <Link href="/signup" className="btn btn-ghost btn-sm md:btn-md">
             Sign Up
@@ -43,7 +57,7 @@ function NavEnd() {
   return (
     <>
       {!isPending && data && (
-        <div className={`navbar-end`}>
+        <div className={`navbar-end ${className ? className : ""}`} {...rest}>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost avatar">
               <div className="w-10 rounded-full">
