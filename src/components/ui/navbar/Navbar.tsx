@@ -1,5 +1,5 @@
 import React from "react";
-import CompanyLogo from "../CompanyLogo";
+import CompanyLogo from "@/components/ui/common/CompanyLogo";
 import NavMobile from "./NavMobile";
 import NavCenter from "./NavCenter";
 import NavEnd from "./NavEnd";

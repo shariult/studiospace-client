@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef } from "react";
-import Container from "@/components/ui/Container";
+import Container from "@/components/ui/common/Container";
 import { TBreadCrumbs } from "@/types";
 import Breadcrumbs from "./Breadcrumbs";
 

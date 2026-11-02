@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { PiTwitterLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
-import CompanyLogo from "./CompanyLogo";
-import Container from "./Container";
-import FeatureCard from "./general/FeatureCard";
+import CompanyLogo from "@/components/ui/common/CompanyLogo";
+import Container from "@/components/ui/common/Container";
+import FeatureCard from "./homepage/FeatureCard";
 import {
   PiShieldCheck,
   PiSealCheck,
@@ -17,6 +17,7 @@ function Footer() {
       <Container
         className="bg-gray-100 border-t border-t-gray-300"
         boxClassName="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+        setYSpace="py-10"
       >
         <FeatureCard
           heading="Liability Protection"

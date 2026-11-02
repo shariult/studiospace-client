@@ -1,9 +1,9 @@
 import React, { ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
-import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
+import Container from "@/components/ui/common/Container";
+import SectionTitle from "@/components/ui/common/SectionTitle";
 import aboutImg from "@/assets/img/about.webp";
-import StatCard from "@/components/ui/general/StatCard";
+import StatCard from "@/components/layout/homepage/StatCard";
 
 type SectionAboutProps = {
   className?: string;

@@ -1,9 +1,9 @@
 import React, { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
-import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
+import Container from "@/components/ui/common/Container";
+import SectionTitle from "@/components/ui/common/SectionTitle";
 import { categories } from "@/data/categories";
-import CategoryCard from "@/components/ui/general/CategoryCard";
+import CategoryCard from "@/components/layout/homepage/CategoryCard";
 
 type SectionCategoriesProps = {
   className?: string;

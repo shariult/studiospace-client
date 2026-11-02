@@ -1,8 +1,9 @@
 "use client";
 
-import Container from "@/components/ui/Container";
+import Container from "@/components/ui/common/Container";
 import FormGroup from "@/components/ui/form/FormGroup";
-import { amenities, categories } from "@/data/categories";
+import { categories } from "@/data/categories";
+import { amenities } from "@/data/amenities";
 import React, { ComponentPropsWithoutRef } from "react";
 import {
   PiTextT,

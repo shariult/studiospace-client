@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Josefin_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar/Navbar";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/layout/Footer";
 import ToasterProvider from "@/components/ToastProvider";
 
 const josefinSans = Josefin_Sans({

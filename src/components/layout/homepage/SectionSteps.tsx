@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef } from "react";
-import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
-import StepCard from "@/components/ui/general/StepCard";
+import Container from "@/components/ui/common/Container";
+import SectionTitle from "@/components/ui/common/SectionTitle";
+import StepCard from "@/components/layout/homepage/StepCard";
 
 type SectionStepsProps = {
   className?: string;

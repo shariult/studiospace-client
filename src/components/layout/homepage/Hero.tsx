@@ -3,7 +3,7 @@
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 import MySwiper from "@/components/MySwiper";
-import HeroSlide from "@/components/ui/general/HeroSlide";
+import HeroSlide from "@/components/layout/homepage/HeroSlide";
 
 function Hero() {
   return (

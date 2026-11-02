@@ -1,8 +1,8 @@
 import React, { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import { PiArrowRightBold } from "react-icons/pi";
-import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
+import Container from "@/components/ui/common/Container";
+import SectionTitle from "@/components/ui/common/SectionTitle";
 
 type SectionFeaturedProps = {
   className?: string;
