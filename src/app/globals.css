@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@theme {
+@theme inline {
   --font-title: var(--font-josefin-sans), Arial, Helvetica, sans-serif;
   --font-text: var(--font-inter), Arial, Helvetica, sans-serif;
   --color-primary: #c62828;

@@ -1,13 +1,15 @@
 import React from "react";
-import { GoogleSvg } from "@/components/SVGIcons";
 import UserForm from "@/components/ui/user/UserForm";
+import SocialSignIn from "@/components/ui/user/SocialSignIn";
 
 function SignInPage() {
   return (
     <section className="max-w-md mx-auto px-6 py-20">
       <div className="card border border-base-300 shadow-lg py-6">
         <div className="card-body">
-          <h2 className="text-3xl font-extrabold text-center">Welcome back</h2>
+          <h2 className="text-3xl font-extrabold text-center capitalize">
+            Welcome back
+          </h2>
           <p className="text-center opacity-70 -mt-2 mb-4">
             Log in to book and manage studios.
           </p>
@@ -15,10 +17,7 @@ function SignInPage() {
 
           <div className="divider my-2">OR</div>
 
-          <button className="btn btn-outline mb-4">
-            <GoogleSvg className="w-4" />
-            Continue with Google
-          </button>
+          <SocialSignIn />
 
           <p className="text-center text-sm">
             <span className="text-gray-500">Don&apos;t Have an Account?</span>
