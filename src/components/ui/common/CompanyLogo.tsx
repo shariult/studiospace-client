@@ -1,6 +1,6 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
-import { LogoSvg } from "@/components/SVGIcons";
+import { LogoSvg } from "@/components/ui/common/SVGIcons";
 
 type CompanyLogoProps = {
   children?: React.ReactNode;

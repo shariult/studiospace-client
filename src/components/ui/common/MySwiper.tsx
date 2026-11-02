@@ -15,7 +15,7 @@ import "swiper/css/keyboard";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
-import "../assets/css/myswiper.css";
+import "../../../assets/css/myswiper.css";
 
 type MySwiperProps = {
   children: React.ReactNode;

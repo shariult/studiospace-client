@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHeader from "@/components/ui/common/SectionHeader";
+import SectionHeader from "@/components/ui/common/PageHeader";
 import { TBreadCrumbs } from "@/types";
 import StudioForm from "@/components/layout/studio/StudioForm";
 

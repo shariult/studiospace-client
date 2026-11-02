@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PiTwitterLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
 import CompanyLogo from "@/components/ui/common/CompanyLogo";
 import Container from "@/components/ui/common/Container";
-import FeatureCard from "./homepage/FeatureCard";
+import FeatureCard from "../ui/footer/FeatureCard";
 import {
   PiShieldCheck,
   PiSealCheck,

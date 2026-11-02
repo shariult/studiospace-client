@@ -1,6 +1,6 @@
 import React from "react";
 import UserForm from "@/components/ui/user/UserForm";
-import { GoogleSvg } from "@/components/SVGIcons";
+import { GoogleSvg } from "@/components/ui/common/SVGIcons";
 import Link from "next/link";
 import SocialSignIn from "@/components/ui/user/SocialSignIn";
 

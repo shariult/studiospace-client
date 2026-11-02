@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GoogleSvg } from "@/components/SVGIcons";
+import { GoogleSvg } from "@/components/ui/common/SVGIcons";
 import { authClient } from "@/lib/authClient";
 import toast from "react-hot-toast";
 

@@ -13,7 +13,7 @@ import {
 } from "react-icons/pi";
 import { authClient } from "@/lib/authClient";
 import UserDemoImg from "../user/UserDemoImg";
-import Loading from "@/components/Loading";
+import Loading from "@/components/ui/common/Loading";
 
 type NavEndProps = {
   className?: string;

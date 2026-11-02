@@ -3,14 +3,14 @@ import Container from "@/components/ui/common/Container";
 import { TBreadCrumbs } from "@/types";
 import Breadcrumbs from "./Breadcrumbs";
 
-type SectionHeaderProps = {
+type PageHeaderProps = {
   breadcrumbs: TBreadCrumbs[];
   heading: string;
   details: string;
   className?: string;
 } & ComponentPropsWithoutRef<"header">;
 
-function SectionHeader(props: SectionHeaderProps) {
+function PageHeader(props: PageHeaderProps) {
   const { heading, details, breadcrumbs, className, ...rest } = props;
 
   return (
@@ -23,4 +23,4 @@ function SectionHeader(props: SectionHeaderProps) {
   );
 }
 
-export default SectionHeader;
+export default PageHeader;

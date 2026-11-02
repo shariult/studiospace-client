@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PiArrowRightBold } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import SectionTitle from "@/components/ui/common/SectionTitle";
+import StudioCard from "../studio/StudioCard";
 
 type SectionFeaturedProps = {
   className?: string;
@@ -30,7 +31,7 @@ function SectionFeatured(props: SectionFeaturedProps) {
       </SectionTitle>
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="h-20 bg-gray-200"></div>
+        <StudioCard />
         <div className="h-20 bg-gray-200"></div>
         <div className="h-20 bg-gray-200"></div>
       </div>
