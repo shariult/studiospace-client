@@ -21,7 +21,7 @@
   color-scheme: dark;
 
   --color-primary: hsl(0, 66%, 47%);
-  --color-primary-content: #eee;
+  --color-primary-content: #fff;
 }
 
 @theme {
@@ -38,7 +38,10 @@
     @apply text-gray-400 uppercase text-xs tracking-[0.4rem];
   }
   .heading-3 {
-    @apply text-xl leading-3;
+    @apply text-xl leading-5;
+  }
+  .heading-4 {
+    @apply text-base font-semibold;
   }
   .text-muted {
     @apply text-gray-500 dark:text-gray-300;

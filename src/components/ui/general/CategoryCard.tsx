@@ -13,14 +13,14 @@ function CategoryCard(props: CategoryCardProps) {
   return (
     <Link
       href={href}
-      className={`bg-gray-50 p-6 shadow rounded-md hover:scale-105 ${className ? className : ""}`}
+      className={`bg-white p-6 shadow rounded-md hover:scale-105 ${className ? className : ""}`}
       key={data.id}
       {...rest}
     >
-      <span className="inline-block text-3xl mb-4 p-3 rounded-full text-primary bg-gray-100">
+      <span className="inline-block text-3xl mb-3 p-3 rounded-full text-primary bg-gray-100">
         <Icon />
       </span>
-      <h3 className="heading-3 mb-2">{data.title}</h3>
+      <h3 className="heading-3 mb-1">{data.title}</h3>
       <p className="text-muted text-sm">{data.details}</p>
     </Link>
   );

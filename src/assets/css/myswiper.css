@@ -32,7 +32,7 @@
   opacity: 0.8;
 }
 .swiper-pagination-bullet-active {
-  background: rgb(198, 40, 40);
+  background: var(--color-primary);
   opacity: 1;
 }
 .swiper-slide--1 {
