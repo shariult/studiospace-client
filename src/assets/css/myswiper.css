@@ -1,0 +1,64 @@
+/** Swiper styles **/
+
+.swiper {
+  user-select: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  height: 72vh;
+  padding: 0px 0px;
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+
+  background-color: rgba(51, 51, 51, 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0px;
+  padding: 60px 0;
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 32px;
+}
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.8;
+}
+.swiper-pagination-bullet-active {
+  background: rgb(198, 40, 40);
+  opacity: 1;
+}
+.swiper-slide--1 {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(198, 40, 40, 0.6) 40%,
+      rgba(198, 40, 40, 0.3)
+    ),
+    url(/img/hero01.webp);
+}
+.swiper-slide--2 {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(198, 40, 40, 0.6) 40%,
+      rgba(198, 40, 40, 0.3)
+    ),
+    url(/img/hero02.webp);
+}
+.swiper-slide--3 {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(198, 40, 40, 0.6) 40%,
+      rgba(198, 40, 40, 0.3)
+    ),
+    url(/img/hero03.webp);
+}

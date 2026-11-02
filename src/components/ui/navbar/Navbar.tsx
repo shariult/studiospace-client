@@ -6,7 +6,7 @@ import NavEnd from "./NavEnd";
 
 function Navbar() {
   return (
-    <nav className=" bg-base-100 shadow-sm">
+    <nav className="bg-gray-100 shadow-sm sticky top-0 left-0 z-40 opacity-95">
       <div className="navbar max-w-330 mx-auto px-6">
         <div className="navbar-start">
           <NavMobile />
