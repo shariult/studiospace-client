@@ -1,6 +1,9 @@
 import React, { ComponentPropsWithoutRef } from "react";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { categories } from "@/data/categories";
+import CategoryCard from "@/components/ui/general/CategoryCard";
 
 type SectionCategoriesProps = {
   className?: string;
@@ -18,11 +21,17 @@ function SectionCategories(props: SectionCategoriesProps) {
         className="mb-12"
       ></SectionTitle>
 
-      <p className="text-muted">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi harum
-        incidunt officia sed ab, quod perspiciatis aliquam nobis atque, aliquid
-        hic natus vero odit, ipsam suscipit quas doloribus facilis cum!
-      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {categories.map((item) => {
+          return (
+            <CategoryCard
+              href={`/studios?category=${item.slug}`}
+              data={item}
+              key={item.id}
+            />
+          );
+        })}
+      </div>
     </Container>
   );
 }
