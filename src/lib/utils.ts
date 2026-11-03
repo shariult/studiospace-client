@@ -9,6 +9,14 @@ function formatPrice(value: number) {
   return `$${value.toLocaleString("en-US")}`;
 }
 
+function formatDate(date: string) {
+  return new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 function isValidStr(
   str: string,
   minLength?: number,
@@ -63,4 +71,5 @@ export {
   isValidEmail,
   isValidPassword,
   formatPrice,
+  formatDate,
 };

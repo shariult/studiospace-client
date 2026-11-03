@@ -30,4 +30,22 @@ type TStudio = {
   rating: number;
 };
 
-export { type TCategory, type TBreadCrumbs, type TStudio };
+type TBookingStatus = "pending" | "approved" | "rejected" | "cancelled";
+
+type TBooking = {
+  id: string;
+  studio: { title: string; address: string; imageUrl: string };
+  date: string;
+  startTime: string;
+  endTime: string;
+  status: TBookingStatus;
+  price: number;
+};
+
+export {
+  type TCategory,
+  type TBreadCrumbs,
+  type TStudio,
+  type TBooking,
+  type TBookingStatus,
+};
