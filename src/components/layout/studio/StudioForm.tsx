@@ -14,6 +14,8 @@ import {
   PiImage,
   PiCurrencyDollar,
 } from "react-icons/pi";
+import { studioStore } from "@/lib/studioActions";
+import { TStudio } from "@/types";
 
 type StudioFormProps = {
   className?: string;
@@ -23,12 +25,12 @@ type StudioFormProps = {
 function StudioForm(props: StudioFormProps) {
   const { className, children, ...rest } = props;
 
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    const data = {
+    const formDataObj = {
       title: formData.get("title"),
       category: formData.get("category"),
       capacity: Number(formData.get("capacity")),
@@ -40,8 +42,8 @@ function StudioForm(props: StudioFormProps) {
       overview: formData.get("overview"),
     };
 
-    console.log(data);
-  };
+    const res = await studioStore(formDataObj as TStudio);
+  }
 
   return (
     <Container className={`${className ? className : ""}`} {...rest}>

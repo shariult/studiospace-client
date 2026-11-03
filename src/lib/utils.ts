@@ -1,3 +1,35 @@
+import { ActionResult } from "@/types";
+
+async function sendRequest<T>(
+  urlPath: string,
+  options: RequestInit = {},
+): Promise<ActionResult<T>> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}${urlPath}`,
+      options,
+    );
+
+    if (!res.ok) {
+      return {
+        isSuccess: false,
+        error: `Request failed (${res.status})`,
+      };
+    }
+
+    return {
+      isSuccess: true,
+      data: (await res.json()) as T,
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      isSuccess: false,
+      error: "Something went wrong!",
+    };
+  }
+}
+
 function delay(ms: number) {
   const dummyPromise = new Promise(function (resolve) {
     setTimeout(resolve, ms);
@@ -65,6 +97,7 @@ function isValidPassword(password: string): boolean {
 }
 
 export {
+  sendRequest,
   delay,
   isValidStr,
   isValidNum,

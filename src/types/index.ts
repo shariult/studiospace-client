@@ -1,5 +1,12 @@
 import { IconType } from "react-icons";
 
+type ActionResult<T> =
+  | {
+      isSuccess: true;
+      data: T;
+    }
+  | { isSuccess: false; error: string };
+
 type TCategory = {
   id: number;
   title: string;
@@ -43,6 +50,7 @@ type TBooking = {
 };
 
 export {
+  type ActionResult,
   type TCategory,
   type TBreadCrumbs,
   type TStudio,
