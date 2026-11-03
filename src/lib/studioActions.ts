@@ -50,4 +50,23 @@ async function studioDestroy(data: TStudio) {
   return res;
 }
 
-export { studioIndex, studioShow, studioStore, studioUpdate, studioDestroy };
+async function studioSeed() {
+  const token = await getTokenFromServer();
+  const data = await sendRequest("/studio-seed", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+}
+
+export {
+  studioIndex,
+  studioShow,
+  studioStore,
+  studioUpdate,
+  studioDestroy,
+  studioSeed,
+};

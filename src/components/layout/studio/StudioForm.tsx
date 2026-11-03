@@ -14,7 +14,7 @@ import {
   PiImage,
   PiCurrencyDollar,
 } from "react-icons/pi";
-import { studioStore } from "@/lib/studioActions";
+import { studioSeed, studioStore } from "@/lib/studioActions";
 import { TStudio } from "@/types";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
