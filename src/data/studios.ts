@@ -3,7 +3,7 @@ import { TStudio } from "@/types";
 // hourlyRate and deposit are in USD
 const studios: TStudio[] = [
   {
-    id: "1",
+    _id: "1",
     title: "Tempo Suite",
     slug: "tempo-suite",
     category: "Music Suites",
@@ -27,7 +27,7 @@ const studios: TStudio[] = [
     rating: 4.9,
   },
   {
-    id: "2",
+    _id: "2",
     title: "Lumen Loft",
     slug: "lumen-loft",
     category: "Photo Studio",
@@ -43,7 +43,7 @@ const studios: TStudio[] = [
     rating: 4.7,
   },
   {
-    id: "3",
+    _id: "3",
     title: "Fourth Wall Records",
     slug: "fourth-wall-records",
     category: "Music Suites",
@@ -66,7 +66,7 @@ const studios: TStudio[] = [
     rating: 4.7,
   },
   {
-    id: "4",
+    _id: "4",
     title: "Studio Aperture",
     slug: "studio-aperture",
     category: "Photo Studio",
@@ -88,7 +88,7 @@ const studios: TStudio[] = [
     rating: 3.9,
   },
   {
-    id: "5",
+    _id: "5",
     title: "Resonance Room",
     slug: "resonance-room",
     category: "Music Suites",
@@ -104,7 +104,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "6",
+    _id: "6",
     title: "The Mix Den",
     slug: "the-mix-den",
     category: "Music Suites",
@@ -127,7 +127,7 @@ const studios: TStudio[] = [
     rating: 4.2,
   },
   {
-    id: "7",
+    _id: "7",
     title: "Voicebox Studio",
     slug: "voicebox-studio",
     category: "Podcast Rooms",
@@ -143,7 +143,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "8",
+    _id: "8",
     title: "Reverb Rooms",
     slug: "reverb-rooms",
     category: "Music Suites",
@@ -159,7 +159,7 @@ const studios: TStudio[] = [
     rating: 3.8,
   },
   {
-    id: "9",
+    _id: "9",
     title: "Vinyl Vault",
     slug: "vinyl-vault",
     category: "Music Suites",
@@ -182,7 +182,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "10",
+    _id: "10",
     title: "Opal Photo House",
     slug: "opal-photo-house",
     category: "Photo Studio",
@@ -207,7 +207,7 @@ const studios: TStudio[] = [
     rating: 5.0,
   },
   {
-    id: "11",
+    _id: "11",
     title: "Headline Pod",
     slug: "headline-pod",
     category: "Podcast Rooms",
@@ -223,7 +223,7 @@ const studios: TStudio[] = [
     rating: 4.4,
   },
   {
-    id: "12",
+    _id: "12",
     title: "Cine Dock",
     slug: "cine-dock",
     category: "Sound Stages",
@@ -247,7 +247,7 @@ const studios: TStudio[] = [
     rating: 4.8,
   },
   {
-    id: "13",
+    _id: "13",
     title: "Mic Drop Lounge",
     slug: "mic-drop-lounge",
     category: "Podcast Rooms",
@@ -272,7 +272,7 @@ const studios: TStudio[] = [
     rating: 3.9,
   },
   {
-    id: "14",
+    _id: "14",
     title: "Iron Gate Sound Stage",
     slug: "iron-gate-sound-stage",
     category: "Sound Stages",
@@ -293,7 +293,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "15",
+    _id: "15",
     title: "Inkwell Workshop",
     slug: "inkwell-workshop",
     category: "Art Workshops",
@@ -309,7 +309,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "16",
+    _id: "16",
     title: "Clapboard Hall",
     slug: "clapboard-hall",
     category: "Sound Stages",
@@ -332,7 +332,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "17",
+    _id: "17",
     title: "Brew & Broadcast",
     slug: "brew-and-broadcast",
     category: "Podcast Rooms",
@@ -357,7 +357,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "18",
+    _id: "18",
     title: "The Talk Booth",
     slug: "the-talk-booth",
     category: "Podcast Rooms",
@@ -382,7 +382,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "19",
+    _id: "19",
     title: "Daylight Frame",
     slug: "daylight-frame",
     category: "Photo Studio",
@@ -404,7 +404,7 @@ const studios: TStudio[] = [
     rating: 4.7,
   },
   {
-    id: "20",
+    _id: "20",
     title: "Stage One Productions",
     slug: "stage-one-productions",
     category: "Sound Stages",
@@ -427,7 +427,7 @@ const studios: TStudio[] = [
     rating: 4.4,
   },
   {
-    id: "21",
+    _id: "21",
     title: "Studio Terracotta",
     slug: "studio-terracotta",
     category: "Art Workshops",
@@ -453,7 +453,7 @@ const studios: TStudio[] = [
     rating: 4.6,
   },
   {
-    id: "22",
+    _id: "22",
     title: "The White Box",
     slug: "the-white-box",
     category: "Photo Studio",
@@ -478,7 +478,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "23",
+    _id: "23",
     title: "Northlight Studio",
     slug: "northlight-studio",
     category: "Photo Studio",
@@ -504,7 +504,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "24",
+    _id: "24",
     title: "Open Mic Nook",
     slug: "open-mic-nook",
     category: "Podcast Rooms",
@@ -526,7 +526,7 @@ const studios: TStudio[] = [
     rating: 4.1,
   },
   {
-    id: "25",
+    _id: "25",
     title: "Palette Yard",
     slug: "palette-yard",
     category: "Art Workshops",
@@ -552,7 +552,7 @@ const studios: TStudio[] = [
     rating: 4.8,
   },
   {
-    id: "26",
+    _id: "26",
     title: "Frame & Flicker",
     slug: "frame-and-flicker",
     category: "Sound Stages",
@@ -574,7 +574,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "27",
+    _id: "27",
     title: "Echo Room",
     slug: "echo-room",
     category: "Podcast Rooms",
@@ -599,7 +599,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "28",
+    _id: "28",
     title: "Reel House",
     slug: "reel-house",
     category: "Sound Stages",
@@ -624,7 +624,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "29",
+    _id: "29",
     title: "Grand Set Studio",
     slug: "grand-set-studio",
     category: "Sound Stages",
@@ -645,7 +645,7 @@ const studios: TStudio[] = [
     rating: 4.6,
   },
   {
-    id: "30",
+    _id: "30",
     title: "Cyc Wall Studio",
     slug: "cyc-wall-studio",
     category: "Photo Studio",
@@ -669,7 +669,7 @@ const studios: TStudio[] = [
     rating: 4.4,
   },
   {
-    id: "31",
+    _id: "31",
     title: "Redline Film Space",
     slug: "redline-film-space",
     category: "Sound Stages",
@@ -685,7 +685,7 @@ const studios: TStudio[] = [
     rating: 4.8,
   },
   {
-    id: "32",
+    _id: "32",
     title: "Bassline Studio",
     slug: "bassline-studio",
     category: "Music Suites",
@@ -701,7 +701,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "33",
+    _id: "33",
     title: "Amp & Anchor",
     slug: "amp-and-anchor",
     category: "Music Suites",
@@ -724,7 +724,7 @@ const studios: TStudio[] = [
     rating: 3.8,
   },
   {
-    id: "34",
+    _id: "34",
     title: "Sofa Sessions",
     slug: "sofa-sessions",
     category: "Podcast Rooms",
@@ -740,7 +740,7 @@ const studios: TStudio[] = [
     rating: 4.6,
   },
   {
-    id: "35",
+    _id: "35",
     title: "The Maker's Table",
     slug: "the-makers-table",
     category: "Art Workshops",
@@ -766,7 +766,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "36",
+    _id: "36",
     title: "Sketchbook Space",
     slug: "sketchbook-space",
     category: "Art Workshops",
@@ -792,7 +792,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "37",
+    _id: "37",
     title: "Colorworks",
     slug: "colorworks",
     category: "Art Workshops",
@@ -808,7 +808,7 @@ const studios: TStudio[] = [
     rating: 5.0,
   },
   {
-    id: "38",
+    _id: "38",
     title: "Octave Lab",
     slug: "octave-lab",
     category: "Music Suites",
@@ -832,7 +832,7 @@ const studios: TStudio[] = [
     rating: 3.9,
   },
   {
-    id: "39",
+    _id: "39",
     title: "Quiet Orbit",
     slug: "quiet-orbit",
     category: "Podcast Rooms",
@@ -855,7 +855,7 @@ const studios: TStudio[] = [
     rating: 4.4,
   },
   {
-    id: "40",
+    _id: "40",
     title: "Pixel & Pine",
     slug: "pixel-and-pine",
     category: "Photo Studio",
@@ -871,7 +871,7 @@ const studios: TStudio[] = [
     rating: 4.1,
   },
   {
-    id: "41",
+    _id: "41",
     title: "Soundwave Stage",
     slug: "soundwave-stage",
     category: "Sound Stages",
@@ -896,7 +896,7 @@ const studios: TStudio[] = [
     rating: 4.5,
   },
   {
-    id: "42",
+    _id: "42",
     title: "Blackbox Cinema Lab",
     slug: "blackbox-cinema-lab",
     category: "Sound Stages",
@@ -919,7 +919,7 @@ const studios: TStudio[] = [
     rating: 4.2,
   },
   {
-    id: "43",
+    _id: "43",
     title: "Hands-On Atelier",
     slug: "hands-on-atelier",
     category: "Art Workshops",
@@ -943,7 +943,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "44",
+    _id: "44",
     title: "Brush Collective",
     slug: "brush-collective",
     category: "Art Workshops",
@@ -959,7 +959,7 @@ const studios: TStudio[] = [
     rating: 4.9,
   },
   {
-    id: "45",
+    _id: "45",
     title: "Clear Signal Room",
     slug: "clear-signal-room",
     category: "Podcast Rooms",
@@ -981,7 +981,7 @@ const studios: TStudio[] = [
     rating: 4.3,
   },
   {
-    id: "46",
+    _id: "46",
     title: "Loom & Lathe",
     slug: "loom-and-lathe",
     category: "Art Workshops",
@@ -1006,7 +1006,7 @@ const studios: TStudio[] = [
     rating: 4.2,
   },
   {
-    id: "47",
+    _id: "47",
     title: "Golden Hour Space",
     slug: "golden-hour-space",
     category: "Photo Studio",
@@ -1022,7 +1022,7 @@ const studios: TStudio[] = [
     rating: 4.2,
   },
   {
-    id: "48",
+    _id: "48",
     title: "Clay & Canvas",
     slug: "clay-and-canvas",
     category: "Art Workshops",
@@ -1038,7 +1038,7 @@ const studios: TStudio[] = [
     rating: 4.0,
   },
   {
-    id: "49",
+    _id: "49",
     title: "Snap Haven",
     slug: "snap-haven",
     category: "Photo Studio",
@@ -1054,7 +1054,7 @@ const studios: TStudio[] = [
     rating: 4.4,
   },
   {
-    id: "50",
+    _id: "50",
     title: "Harmony House",
     slug: "harmony-house",
     category: "Music Suites",

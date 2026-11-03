@@ -3,12 +3,29 @@ import { sendRequest } from "./utils";
 import { getTokenFromServer } from "./userActions";
 
 async function studioIndex() {
-  const data = await sendRequest<TStudio>("/studio");
+  const data = await sendRequest<TStudio[]>("/studio");
+  return data;
+}
+
+async function studioFeatured() {
+  const data = await sendRequest<TStudio[]>("/studio?category=featured");
+  return data;
+}
+
+async function myListings() {
+  const token = await getTokenFromServer();
+  const data = await sendRequest<TStudio[]>("/my-listings", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  });
   return data;
 }
 
 async function studioShow(sId: string) {
-  const res = await sendRequest(`/studio/${sId}`);
+  const res = await sendRequest<TStudio>(`/studio/${sId}`);
   return res;
 }
 
@@ -27,7 +44,7 @@ async function studioStore(data: TStudio) {
 
 async function studioUpdate(data: TStudio) {
   const token = await getTokenFromServer();
-  const res = await sendRequest(`/studio/${data.id}`, {
+  const res = await sendRequest(`/studio/${data._id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -38,9 +55,9 @@ async function studioUpdate(data: TStudio) {
   return res;
 }
 
-async function studioDestroy(data: TStudio) {
+async function studioDestroy(sId: string) {
   const token = await getTokenFromServer();
-  const res = await sendRequest(`/studio/${data.id}`, {
+  const res = await sendRequest(`/studio/${sId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -64,9 +81,11 @@ async function studioSeed() {
 
 export {
   studioIndex,
+  studioFeatured,
   studioShow,
   studioStore,
   studioUpdate,
   studioDestroy,
   studioSeed,
+  myListings,
 };

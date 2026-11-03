@@ -17,7 +17,7 @@ function StudioCreatePage() {
         heading="Host your own studio"
         details="List your studio for renting, help creators produce amazing work."
       />
-      <StudioForm />
+      <StudioForm type="store" />
     </>
   );
 }

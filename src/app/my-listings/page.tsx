@@ -1,44 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import Container from "@/components/ui/common/Container";
 import StudioCell from "@/components/ui/table/StudioCell";
 import { categories } from "@/data/categories";
 import { PiEye, PiPencilSimple, PiTrash } from "react-icons/pi";
 import { formatPrice } from "@/lib/utils";
-import { TStudio } from "@/types";
-
-const listings: Pick<
-  TStudio,
-  | "id"
-  | "title"
-  | "address"
-  | "imageUrl"
-  | "category"
-  | "hourlyRate"
-  | "deposit"
-  | "capacity"
->[] = [
-  {
-    id: "1",
-    title: "Sunlight Photo Studio",
-    address: "Banani, Dhaka",
-    imageUrl: "https://placehold.co/96x96",
-    category: "photography",
-    hourlyRate: 40,
-    deposit: 100,
-    capacity: 8,
-  },
-];
+import { myListings } from "@/lib/studioActions";
+import StudioDelete from "@/components/layout/studio/StudioDelete";
 
 const getCategoryTitle = (slug: string) =>
   categories.find((c) => c.slug === slug)?.title ?? slug;
 
-export default function MyListingsPage() {
-  const handleDelete = (id: string) => {
-    if (!confirm("Delete this listing?")) return;
-    console.log("delete", id);
-  };
+async function MyListingsPage() {
+  const res = await myListings();
+  let listings = res.isSuccess ? res.data : [];
 
   return (
     <Container>
@@ -66,7 +40,7 @@ export default function MyListingsPage() {
             )}
 
             {listings.map((item) => (
-              <tr key={item.id}>
+              <tr key={item._id}>
                 <td>
                   <StudioCell
                     imageUrl={item.imageUrl}
@@ -85,7 +59,7 @@ export default function MyListingsPage() {
                 <td>
                   <div className="flex justify-end gap-1">
                     <Link
-                      href={`/studios/${item.id}`}
+                      href={`/studios/${item._id}`}
                       className="btn btn-ghost btn-square btn-sm tooltip text-xl"
                       data-tip="Show"
                       aria-label="Show"
@@ -94,7 +68,7 @@ export default function MyListingsPage() {
                     </Link>
 
                     <Link
-                      href={`/my-listings/${item.id}/edit`}
+                      href={`/studios/edit/${item._id}`}
                       className="btn btn-ghost btn-square btn-sm tooltip text-xl"
                       data-tip="Edit"
                       aria-label="Edit"
@@ -102,15 +76,7 @@ export default function MyListingsPage() {
                       <PiPencilSimple />
                     </Link>
 
-                    <button
-                      type="button"
-                      className="btn btn-ghost btn-square btn-sm tooltip text-error text-xl"
-                      data-tip="Delete"
-                      aria-label="Delete"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      <PiTrash />
-                    </button>
+                    <StudioDelete data={item} />
                   </div>
                 </td>
               </tr>
@@ -121,3 +87,4 @@ export default function MyListingsPage() {
     </Container>
   );
 }
+export default MyListingsPage;

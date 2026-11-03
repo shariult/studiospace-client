@@ -13,7 +13,7 @@ type StudioCardProps = {
 
 function StudioCard(props: StudioCardProps) {
   const { data, className, children, ...rest } = props;
-  const href = `/studios/${data.id}`;
+  const href = `/studios/${data._id}`;
 
   return (
     <div

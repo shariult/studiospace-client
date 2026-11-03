@@ -5,6 +5,7 @@ import StudioShowHeader from "@/components/layout/studio/StudioShowHeader";
 import StudioShowImage from "@/components/layout/studio/StudioShowImage";
 import { studios } from "@/data/studios";
 import Breadcrumbs from "@/components/ui/common/Breadcrumbs";
+import { studioShow } from "@/lib/studioActions";
 
 type StudioShowPageProps = {
   params: Promise<{ sId: string }>;
@@ -12,18 +13,22 @@ type StudioShowPageProps = {
 
 export async function generateMetadata({ params }: StudioShowPageProps) {
   const { sId } = await params;
-  const data = studios.find((item) => item.id === sId);
-  return {
-    title: `${data?.title} | StudioSpace`,
-    description: data?.overview,
-  };
+  const res = await studioShow(sId);
+  if (res.isSuccess) {
+    const data = res.data;
+    return {
+      title: `${data?.title} | StudioSpace`,
+      description: data?.overview,
+    };
+  }
 }
 
 async function StudioShowPage({ params }: StudioShowPageProps) {
   const { sId } = await params;
-  const studio = studios.find((item) => item.id === sId);
-  if (!studio) notFound();
+  const res = await studioShow(sId);
+  if (!res.isSuccess) notFound();
 
+  const studio = res.data;
   const breadcrumbData = [
     {
       id: 1,

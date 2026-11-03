@@ -4,14 +4,15 @@ import { PiArrowRightBold } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import SectionTitle from "@/components/ui/common/SectionTitle";
 import StudioCard from "../studio/StudioCard";
-import { studios } from "@/data/studios";
+import { TStudio } from "@/types";
 
 type SectionFeaturedProps = {
+  data: TStudio[];
   className?: string;
 } & ComponentPropsWithoutRef<"section">;
 
 function SectionFeatured(props: SectionFeaturedProps) {
-  const { className, ...rest } = props;
+  const { data, className, ...rest } = props;
 
   return (
     <Container className="bg-gray-100" {...rest}>
@@ -32,8 +33,8 @@ function SectionFeatured(props: SectionFeaturedProps) {
       </SectionTitle>
 
       <div className="grid grid-cols-3 gap-6">
-        {studios.slice(0, 6).map((item) => {
-          return <StudioCard data={item} key={item.id} />;
+        {data.slice(0, 6).map((item) => {
+          return <StudioCard data={item} key={item._id} />;
         })}
       </div>
     </Container>

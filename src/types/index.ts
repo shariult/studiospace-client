@@ -22,7 +22,7 @@ type TBreadCrumbs = {
 };
 
 type TStudio = {
-  id: string;
+  _id: string;
   title: string;
   slug: string;
   category: string;
