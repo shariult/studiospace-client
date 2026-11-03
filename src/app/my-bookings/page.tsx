@@ -2,17 +2,10 @@
 
 import Container from "@/components/ui/common/Container";
 import StudioCell from "@/components/ui/table/StudioCell";
-import { formatDate } from "@/lib/utils";
+import { formatDate, formatPrice } from "@/lib/utils";
 import { TBooking, TBookingStatus } from "@/types";
 import { PiReceipt, PiXCircle } from "react-icons/pi";
 
-// Replace with your existing formatPrice helper
-const formatPrice = (value: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
-    value,
-  );
-
-// Mock data: replace with your real data fetch
 const bookings: TBooking[] = [
   {
     id: "b1",
@@ -39,11 +32,11 @@ const statusBadge: Record<TBookingStatus, string> = {
 export default function MyBookingsPage() {
   const handleCancel = (id: string) => {
     if (!confirm("Cancel this booking?")) return;
-    console.log("cancel", id); // TODO: call your cancel API
+    console.log("cancel", id);
   };
 
   const handleReceipt = (id: string) => {
-    console.log("receipt", id); // TODO: open or download receipt
+    console.log("receipt", id);
   };
 
   return (
