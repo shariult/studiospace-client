@@ -5,6 +5,10 @@ function delay(ms: number) {
   return dummyPromise;
 }
 
+function formatPrice(value: number) {
+  return `$${value.toLocaleString("en-US")}`;
+}
+
 function isValidStr(
   str: string,
   minLength?: number,
@@ -52,4 +56,11 @@ function isValidPassword(password: string): boolean {
   return password.length >= minLength && hasUppercase && hasLowercase;
 }
 
-export { delay, isValidStr, isValidNum, isValidEmail, isValidPassword };
+export {
+  delay,
+  isValidStr,
+  isValidNum,
+  isValidEmail,
+  isValidPassword,
+  formatPrice,
+};

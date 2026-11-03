@@ -14,4 +14,20 @@ type TBreadCrumbs = {
   slug?: string;
 };
 
-export { type TCategory, type TBreadCrumbs };
+type TStudio = {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  categorySlug: string;
+  capacity: number;
+  hourlyRate: number;
+  deposit: number;
+  address: string;
+  imageUrl: string;
+  amenities: string[];
+  overview: string;
+  rating: number;
+};
+
+export { type TCategory, type TBreadCrumbs, type TStudio };

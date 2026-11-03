@@ -4,6 +4,7 @@ import { PiArrowRightBold } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import SectionTitle from "@/components/ui/common/SectionTitle";
 import StudioCard from "../studio/StudioCard";
+import { studios } from "@/data/studios";
 
 type SectionFeaturedProps = {
   className?: string;
@@ -30,10 +31,10 @@ function SectionFeatured(props: SectionFeaturedProps) {
         </div>
       </SectionTitle>
 
-      <div className="grid grid-cols-3 gap-4">
-        <StudioCard />
-        <div className="h-20 bg-gray-200"></div>
-        <div className="h-20 bg-gray-200"></div>
+      <div className="grid grid-cols-3 gap-6">
+        {studios.slice(0, 6).map((item) => {
+          return <StudioCard data={item} key={item.id} />;
+        })}
       </div>
     </Container>
   );

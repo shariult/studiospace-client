@@ -12,4 +12,5 @@ const amenities = [
   "Props",
   "Power Backup",
 ];
+
 export { amenities };
