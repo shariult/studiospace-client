@@ -4,7 +4,6 @@ import UserDemoImg from "@/components/ui/user/UserDemoImg";
 import { getCurrentUser } from "@/lib/userActions";
 import ProfileForm from "@/components/ui/user/ProfileForm";
 import ProfileSignOut from "@/components/ui/user/ProfileSignOut";
-import SectionTitle from "@/components/ui/common/SectionTitle";
 
 async function ProfilePage() {
   const data = (await getCurrentUser())?.user;
