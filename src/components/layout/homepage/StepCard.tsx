@@ -12,7 +12,7 @@ function StepCard(props: StepCardProps) {
 
   return (
     <li className={`step step-neutral ${className ? className : ""}`} {...rest}>
-      <div className={`bg-gray-100 w-full px-4 py-10 rounded-md`}>
+      <div className={`bg-white w-full px-4 py-10 rounded-md`}>
         <h3 className="heading-3 text-primary mb-1">{heading}</h3>
         <p className="text-muted text-sm">{details}</p>
       </div>

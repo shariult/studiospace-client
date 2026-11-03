@@ -11,7 +11,7 @@ function SectionSteps(props: SectionStepsProps) {
   const { className, ...rest } = props;
 
   return (
-    <Container id="steps" {...rest}>
+    <Container className="bg-gray-100" id="steps" {...rest}>
       <SectionTitle
         headingSub="Process"
         heading="How Booking Works"

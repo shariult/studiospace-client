@@ -15,7 +15,7 @@ function Footer() {
   return (
     <>
       <Container
-        className="bg-gray-100 border-t border-t-gray-300"
+        className="bg-gray-100"
         boxClassName="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
         setYSpace="py-10"
       >

@@ -13,7 +13,7 @@ function SectionCategories(props: SectionCategoriesProps) {
   const { className, ...rest } = props;
 
   return (
-    <Container className="bg-gray-100" {...rest}>
+    <Container {...rest}>
       <SectionTitle
         headingSub="Category"
         heading="Browse by Category"

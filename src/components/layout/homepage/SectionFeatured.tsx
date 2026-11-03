@@ -14,7 +14,7 @@ function SectionFeatured(props: SectionFeaturedProps) {
   const { className, ...rest } = props;
 
   return (
-    <Container {...rest}>
+    <Container className="bg-gray-100" {...rest}>
       <SectionTitle
         heading="Featured Studios"
         headingSub="Studio spaces"

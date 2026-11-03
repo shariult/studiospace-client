@@ -2,7 +2,7 @@ import React, { ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TStudio } from "@/types";
-import { PiShieldCheck, PiStarFill, PiUser } from "react-icons/pi";
+import { PiMapPin, PiShieldCheck, PiStarFill, PiUser } from "react-icons/pi";
 import { formatPrice } from "@/lib/utils";
 
 type StudioCardProps = {
@@ -37,14 +37,17 @@ function StudioCard(props: StudioCardProps) {
         </span>
       </figure>
 
-      <div className="card-body gap-3 p-4">
+      <div className="card-body p-4">
         <h3 className="card-title heading-3">
           <Link href={href} className="hover:underline">
             {data.title}
           </Link>
         </h3>
+        <p className="flex items-center gap-1 text-sm text-gray-700 mb-2">
+          <PiMapPin /> {data.address}
+        </p>
 
-        <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-1 text-sm text-muted">
+        <ul className="flex flex-wrap justify-between items-center gap-4 mb-2 p-3 text-sm text-muted border-y border-base-300">
           <li className="flex items-center gap-1.5">
             <PiUser className="size-4" />
             <span>{data.capacity} people</span>
@@ -61,7 +64,7 @@ function StudioCard(props: StudioCardProps) {
           </li>
         </ul>
 
-        <div className="flex items-center justify-between border-t border-base-300 pt-3">
+        <div className="flex items-center justify-between">
           <p>
             <span className="text-lg font-semibold">
               {formatPrice(data.hourlyRate)}

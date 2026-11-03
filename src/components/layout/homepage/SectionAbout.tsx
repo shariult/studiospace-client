@@ -13,12 +13,7 @@ function SectionAbout(props: SectionAboutProps) {
   const { className, ...rest } = props;
 
   return (
-    <Container
-      id="about"
-      className="bg-gray-100"
-      boxClassName="grid grid-cols-2 gap-8"
-      {...rest}
-    >
+    <Container id="about" boxClassName="grid grid-cols-2 gap-8" {...rest}>
       <div className="relative min-h-120">
         <Image
           src={aboutImg}
