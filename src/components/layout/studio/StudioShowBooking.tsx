@@ -1,8 +1,11 @@
-import React, { ComponentPropsWithoutRef } from "react";
+"use client";
+
+import React, { ComponentPropsWithoutRef, useRef } from "react";
 import { PiCheckCircle } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import { formatPrice } from "@/lib/utils";
 import { TStudio } from "@/types";
+import BookingForm from "@/components/ui/booking/BookingForm";
 
 type StudioShowBookingProps = {
   data: TStudio;
@@ -13,6 +16,8 @@ type StudioShowBookingProps = {
 function StudioShowBooking(props: StudioShowBookingProps) {
   const { data, className, children, ...rest } = props;
   const total = Number(data.hourlyRate) + Number(data.deposit);
+
+  const modalRef = useRef<HTMLDialogElement>(null);
 
   return (
     <Container
@@ -48,7 +53,11 @@ function StudioShowBooking(props: StudioShowBookingProps) {
               </div>
             </dl>
 
-            <button type="button" className="btn btn-primary w-full">
+            <button
+              type="button"
+              className="btn btn-primary w-full"
+              onClick={() => modalRef.current?.showModal()}
+            >
               Book this studio
             </button>
 
@@ -61,6 +70,13 @@ function StudioShowBooking(props: StudioShowBookingProps) {
           </div>
         </div>
       </aside>
+
+      <BookingForm
+        ref={modalRef}
+        title={data.title}
+        hourlyRate={data.hourlyRate}
+        deposit={data.deposit}
+      />
     </Container>
   );
 }
