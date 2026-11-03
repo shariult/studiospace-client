@@ -16,6 +16,8 @@ import {
 } from "react-icons/pi";
 import { studioStore } from "@/lib/studioActions";
 import { TStudio } from "@/types";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 type StudioFormProps = {
   className?: string;
@@ -43,6 +45,10 @@ function StudioForm(props: StudioFormProps) {
     };
 
     const res = await studioStore(formDataObj as TStudio);
+    if (res.isSuccess) {
+      toast.success("Studio Added Successfully!");
+      redirect("/studios");
+    }
   }
 
   return (
