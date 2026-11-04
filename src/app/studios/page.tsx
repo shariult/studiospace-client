@@ -8,18 +8,27 @@ import StudioIndexCategory from "@/components/layout/studio/StudioIndexCategory"
 import StudioResetButton from "@/components/ui/studio/StudioResetButton";
 import { getCurrentUser } from "@/lib/authActions";
 import EmptyData from "@/components/ui/common/EmptyData";
+import StudioSearchForm from "@/components/layout/studio/StudioSearchForm";
 
 type StudioIndexPageProps = {
-  searchParams: Promise<{ category: string }>;
+  searchParams: Promise<{ category: string; search: string }>;
 };
 
 async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
-  const { category } = await searchParams;
-  const catQuery = category ? `/studio?category=${category}` : null;
+  const { category, search } = await searchParams;
+
+  const params = new URLSearchParams();
+  if (category) {
+    params.set("category", category);
+  }
+  if (search?.trim()) {
+    params.set("search", search.trim());
+  }
+  const qs = params.toString();
+  const url = qs ? `/studio?${qs}` : null;
 
   const session = await getCurrentUser();
-
-  const res = await studioIndex(catQuery);
+  const res = await studioIndex(url);
   if (!res.isSuccess) notFound();
   const studios = res.data;
 
@@ -29,7 +38,7 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
         <SectionTitle
           headingSub="List of Studios"
           heading="Explore Studios"
-          className="pb-4 md:pb-8"
+          className="pb-4"
         />
         <div className="flex flex-col gap-2 self-end">
           {session && <StudioResetButton />}
@@ -37,7 +46,8 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
         </div>
       </div>
 
-      <StudioIndexCategory catQuery={category} />
+      <StudioSearchForm searchQuery={search} catQuery={category} />
+      <StudioIndexCategory searchQuery={search} catQuery={category} />
 
       {studios.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

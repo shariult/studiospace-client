@@ -3,13 +3,14 @@ import Link from "next/link";
 import React, { ComponentPropsWithoutRef } from "react";
 
 type StudioIndexCategoryProps = {
+  searchQuery: string;
   catQuery: string;
   className?: string;
   children?: React.ReactNode;
 } & ComponentPropsWithoutRef<"div">;
 
 function StudioIndexCategory(props: StudioIndexCategoryProps) {
-  const { catQuery, className, children, ...rest } = props;
+  const { searchQuery, catQuery, className, children, ...rest } = props;
 
   return (
     <div
@@ -25,7 +26,7 @@ function StudioIndexCategory(props: StudioIndexCategoryProps) {
       {categories.map((category) => {
         return (
           <Link
-            href={`/studios?category=${category.slug}`}
+            href={`/studios?category=${category.slug}${searchQuery ? "&search=" + searchQuery : ""}`}
             className={`badge badge-neutral dark:border-gray-100 dark:text-gray-100 dark:hover:bg-gray-200 dark:hover:text-gray-900 ${catQuery === category.slug ? "dark:bg-primary" : "badge-outline"}`}
             key={category.id}
           >

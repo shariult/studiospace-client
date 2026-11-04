@@ -26,7 +26,6 @@ function SectionTitle(props: SectionTitleProps) {
           <p className="text-muted">{headingText}</p>
         )}
       </div>
-
       {children}
     </div>
   );
