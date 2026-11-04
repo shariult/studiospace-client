@@ -138,21 +138,21 @@ function Footer() {
               <div className="flex gap-2">
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary hover:text-gray-50"
                   aria-label="X"
                 >
                   <PiXLogo className="text-lg" />
                 </Link>
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary hover:text-gray-50"
                   aria-label="Instagram"
                 >
                   <PiInstagramLogo className="text-lg" />
                 </Link>
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary hover:text-gray-50"
                   aria-label="YouTube"
                 >
                   <PiYoutubeLogo className="text-lg" />

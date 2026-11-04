@@ -21,7 +21,7 @@ function NavToggle() {
   }
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate mr-4">
       <input
         type="checkbox"
         checked={theme === "dark"}
