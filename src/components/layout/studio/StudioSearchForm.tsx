@@ -15,7 +15,7 @@ function StudioSearchForm(props: StudioSearchFormProps) {
     <Form
       action="/studios"
       role="search"
-      className={`join w-full sm:max-w-md mb-4 ${className ? className : ""}`}
+      className={`flex w-full ${className ? className : ""}`}
     >
       {catQuery && <input type="hidden" name="category" value={catQuery} />}
       <input

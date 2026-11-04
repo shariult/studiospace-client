@@ -14,11 +14,11 @@ function StudioIndexCategory(props: StudioIndexCategoryProps) {
 
   return (
     <div
-      className={`flex flex-wrap gap-3 md:gap-4 mb-12 ${className ? className : ""}`}
+      className={`flex flex-wrap items-center gap-3 md:gap-4 ${className ? className : ""}`}
       {...rest}
     >
       <Link
-        href={"/studios"}
+        href={`/studios${searchQuery ? "?search=" + searchQuery : ""}`}
         className={`badge badge-neutral dark:border-gray-100 dark:text-gray-100 ${!catQuery ? "dark:bg-primary" : "badge-outline"}`}
       >
         All
