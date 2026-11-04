@@ -3,8 +3,15 @@ import UserForm from "@/components/ui/user/UserForm";
 import { GoogleSvg } from "@/components/ui/common/SVGIcons";
 import Link from "next/link";
 import SocialSignIn from "@/components/ui/user/SocialSignIn";
+import { getCurrentUser } from "@/lib/authActions";
+import { redirect } from "next/navigation";
 
-function SignUpPage() {
+async function SignUpPage() {
+  const session = await getCurrentUser();
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <section className="max-w-md mx-auto px-6 py-20">
       <div className="card border border-base-300 shadow-lg py-6">

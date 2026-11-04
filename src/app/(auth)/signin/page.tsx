@@ -1,8 +1,15 @@
 import React from "react";
 import UserForm from "@/components/ui/user/UserForm";
 import SocialSignIn from "@/components/ui/user/SocialSignIn";
+import { getCurrentUser } from "@/lib/authActions";
+import { redirect } from "next/navigation";
 
-function SignInPage() {
+async function SignInPage() {
+  const session = await getCurrentUser();
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <section className="max-w-md mx-auto px-6 py-20">
       <div className="card border border-base-300 shadow-lg py-6">
