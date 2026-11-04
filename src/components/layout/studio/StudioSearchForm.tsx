@@ -1,4 +1,5 @@
 import React, { ComponentPropsWithoutRef } from "react";
+import Form from "next/form";
 
 type StudioSearchFormProps = {
   catQuery: string;
@@ -11,9 +12,8 @@ function StudioSearchForm(props: StudioSearchFormProps) {
   const { searchQuery, catQuery, className } = props;
 
   return (
-    <form
+    <Form
       action="/studios"
-      method="GET"
       role="search"
       className={`join w-full sm:max-w-md mb-4 ${className ? className : ""}`}
     >
@@ -28,7 +28,7 @@ function StudioSearchForm(props: StudioSearchFormProps) {
       <button type="submit" className="btn btn-primary join-item">
         Search
       </button>
-    </form>
+    </Form>
   );
 }
 

@@ -34,11 +34,11 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
 
   return (
     <Container>
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between mb-12">
         <SectionTitle
           headingSub="List of Studios"
           heading="Explore Studios"
-          className="pb-4"
+          className="pb-6"
         />
         <div className="flex flex-col gap-2 self-end">
           {session && <StudioResetButton />}
@@ -46,8 +46,14 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
         </div>
       </div>
 
-      <StudioSearchForm searchQuery={search} catQuery={category} />
-      <StudioIndexCategory searchQuery={search} catQuery={category} />
+      <div className="flex flex-wrap gap-4 justify-between">
+        <StudioSearchForm searchQuery={search} catQuery={category} />
+        <StudioIndexCategory
+          searchQuery={search}
+          catQuery={category}
+          className="items-center"
+        />
+      </div>
 
       {studios.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
