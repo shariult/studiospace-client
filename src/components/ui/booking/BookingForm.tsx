@@ -101,7 +101,6 @@ function BookingForm(props: BookingFormProps) {
     if (hasError) {
       setIsLoading(false);
       setFormError(errObj);
-      toast.error("Please check form inputs!");
       return;
     }
 
