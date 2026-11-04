@@ -3,15 +3,19 @@ import { TStudio } from "@/types";
 import { PiCheckCircle } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import StudioShowBooking from "./StudioShowBooking";
+import { User } from "better-auth";
+import Image from "next/image";
+import UserDemoImg from "@/components/ui/user/UserDemoImg";
 
 type StudioShowDetailsProps = {
   data: TStudio;
+  host: User;
   className?: string;
   children?: React.ReactNode;
 } & ComponentPropsWithoutRef<"div">;
 
 function StudioShowDetails(props: StudioShowDetailsProps) {
-  const { data, className, children, ...rest } = props;
+  const { data, host, className, children, ...rest } = props;
 
   return (
     <Container
@@ -41,6 +45,29 @@ function StudioShowDetails(props: StudioShowDetailsProps) {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="space-y-3 p-6 rounded-md bg-gray-50">
+          <h2 className="text-xl font-semibold">About Host</h2>
+          <div className="flex gap-2 items-center">
+            <div className="text-xlrounded-full bg-gray-100 self-start text-primary">
+              {host?.image ? (
+                <Image
+                  src={host.image}
+                  alt={host.name}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
+              ) : (
+                <UserDemoImg name={host.name} />
+              )}
+            </div>
+            <div>
+              <h3 className="heading-4">{host.name}</h3>
+              <p className="text-muted text-sm">{host.email}</p>
+            </div>
+          </div>
         </div>
       </div>
 

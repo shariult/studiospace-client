@@ -6,6 +6,7 @@ import StudioShowImage from "@/components/layout/studio/StudioShowImage";
 import { studios } from "@/data/studios";
 import Breadcrumbs from "@/components/ui/common/Breadcrumbs";
 import { studioShow } from "@/lib/studioActions";
+import { userShow } from "@/lib/userActions";
 
 type StudioShowPageProps = {
   params: Promise<{ sId: string }>;
@@ -29,6 +30,11 @@ async function StudioShowPage({ params }: StudioShowPageProps) {
   if (!res.isSuccess) notFound();
 
   const studio = res.data;
+
+  const userRes = await userShow(studio.userId);
+  if (!userRes.isSuccess) notFound();
+  const host = userRes.data;
+
   const breadcrumbData = [
     {
       id: 1,
@@ -43,7 +49,7 @@ async function StudioShowPage({ params }: StudioShowPageProps) {
       </div>
       <StudioShowHeader data={studio} />
       <StudioShowImage data={studio} />
-      <StudioShowDetails data={studio} />
+      <StudioShowDetails data={studio} host={host} />
     </>
   );
 }
