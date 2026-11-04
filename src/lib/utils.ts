@@ -58,6 +58,9 @@ function isValidStr(
     return false;
   }
   const data = str.trim();
+  if (str.length === 0) {
+    return false;
+  }
   if (minLength !== undefined && data.length < minLength) {
     return false;
   }
@@ -71,10 +74,10 @@ function isValidNum(num: number, min?: number, max?: number): boolean {
   if (typeof num !== "number" || isNaN(num)) {
     return false;
   }
-  if (min !== undefined && num > min) {
+  if (min !== undefined && num < min) {
     return false;
   }
-  if (max !== undefined && num < max) {
+  if (max !== undefined && num > max) {
     return false;
   }
   return true;
@@ -85,7 +88,7 @@ function isValidEmail(str: string): boolean {
     return false;
   }
   const data = str.trim();
-  return str.length > 0 && str.includes("@");
+  return data.length > 0 && data.includes("@");
 }
 
 function isValidPassword(password: string): boolean {

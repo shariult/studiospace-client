@@ -35,8 +35,13 @@ type TStudio = {
   amenities: string[];
   overview: string;
   rating: number;
-  userId?: string;
+  userId: string;
 };
+
+type TStudioInput = Omit<
+  TStudio,
+  "_id" | "slug" | "categorySlug" | "rating" | "userId"
+>;
 
 type TBookingStatus = "pending" | "approved" | "rejected" | "cancelled";
 
@@ -54,6 +59,7 @@ type TBooking = {
   total: number;
   studioId: string;
   userId: string;
+  hostId: string;
 };
 
 type TBookingInput = Omit<TBooking, "_id" | "userId">;
@@ -63,6 +69,7 @@ export {
   type TCategory,
   type TBreadCrumbs,
   type TStudio,
+  type TStudioInput,
   type TBooking,
   type TBookingStatus,
   type TBookingInput,

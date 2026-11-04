@@ -76,6 +76,7 @@ function StudioShowBooking(props: StudioShowBookingProps) {
         hourlyRate={data.hourlyRate}
         deposit={data.deposit}
         studioId={data._id}
+        hostId={data.userId}
       />
     </Container>
   );

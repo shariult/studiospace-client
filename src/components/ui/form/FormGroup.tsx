@@ -3,7 +3,7 @@ import React, { ComponentPropsWithoutRef } from "react";
 type FormGroupProps = {
   children: React.ReactNode;
   labelText?: string;
-  errorText?: string;
+  errorText?: string | undefined;
   className?: string;
   labelExtraEl?: React.ReactNode;
 } & ComponentPropsWithoutRef<"div">;

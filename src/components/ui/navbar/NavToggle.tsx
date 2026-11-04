@@ -3,18 +3,21 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { MoonSVG, SunSVG } from "../common/SVGIcons";
 
 function NavToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
+  const [theme, setTheme] = useState<"light" | "dark">(function () {
     const saved = localStorage.getItem("theme");
-    if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    if (saved === "light" || saved === "dark") {
+      return saved;
+    } else {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
   });
 
-  useEffect(() => {
+  if (theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-  }, [theme]);
+  }
 
   function themeChangeHandler(e: ChangeEvent<HTMLInputElement>) {
     setTheme(e.target.checked ? "dark" : "light");

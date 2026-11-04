@@ -1,7 +1,12 @@
-import { TStudio } from "@/types";
+import { TStudio, TStudioInput } from "@/types";
 
 // hourlyRate and deposit are in USD
-const studios: TStudio[] = [
+const studios: (TStudioInput & {
+  _id: string;
+  slug: string;
+  categorySlug: string;
+  rating: number;
+})[] = [
   {
     _id: "1",
     title: "Tempo Suite",

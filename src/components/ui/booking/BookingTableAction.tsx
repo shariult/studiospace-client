@@ -76,7 +76,7 @@ function BookingTableActions(props: BookingTableActionsProps) {
               className="btn btn-fill-primary"
               onClick={() => handleCancel(bookingData._id)}
             >
-              <PiXCircle /> Cancel
+              <PiXCircle /> Cancel Booking
             </button>
           </div>
         </div>

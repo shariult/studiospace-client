@@ -3,7 +3,7 @@
 import React, { ComponentPropsWithoutRef, useState } from "react";
 import FormGroup from "../form/FormGroup";
 import Link from "next/link";
-import { isValidEmail, isValidPassword, isValidStr } from "@/lib/utils";
+import { delay, isValidEmail, isValidPassword, isValidStr } from "@/lib/utils";
 import { authClient } from "@/lib/authClient";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
@@ -14,18 +14,20 @@ type UserFormProps = {
 } & ComponentPropsWithoutRef<"form">;
 
 type TFormError = {
-  name: string | null;
-  image: string | null;
-  email: string | null;
-  password: string | null;
+  name: string | undefined;
+  image: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
 };
 
 function UserForm(props: UserFormProps) {
   const { type, className, ...rest } = props;
+  const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState<TFormError>();
 
   async function handleUserForm(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
+    setIsLoading(true);
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
@@ -42,7 +44,7 @@ function UserForm(props: UserFormProps) {
         email: formDataObj.email,
         password: formDataObj.password,
       });
-
+      setIsLoading(false);
       if (error) {
         toast.error(error.message ?? "Something went wrong!");
         return;
@@ -54,12 +56,16 @@ function UserForm(props: UserFormProps) {
 
     if (type === "signup") {
       const errObj = {
-        name: !isValidStr(formDataObj.name, 1) ? "Invalid name" : null,
-        image: !isValidStr(formDataObj.image, 7) ? "Invalid image URL" : null,
-        email: !isValidEmail(formDataObj.email) ? "Email is invalid!" : null,
+        name: !isValidStr(formDataObj.name, 1) ? "Invalid name" : undefined,
+        image: !isValidStr(formDataObj.image, 7)
+          ? "Invalid image URL"
+          : undefined,
+        email: !isValidEmail(formDataObj.email)
+          ? "Email is invalid!"
+          : undefined,
         password: !isValidPassword(formDataObj.password)
           ? "Password is invalid"
-          : null,
+          : undefined,
       };
       if (formDataObj.password !== formDataObj.confirmPassword) {
         errObj.password = "Passwords do not match!";
@@ -67,12 +73,18 @@ function UserForm(props: UserFormProps) {
       if (!formDataObj.image.startsWith("https://")) {
         errObj.image = "Invalid image URL!";
       }
-      if (errObj.name || errObj.email || errObj.password || errObj.image) {
+      const hasError = Object.values(errObj).some(
+        (error) => error !== undefined,
+      );
+      if (hasError) {
+        setIsLoading(false);
         setFormError(errObj);
         return;
       }
 
       const { data, error } = await authClient.signUp.email(formDataObj);
+      setIsLoading(false);
+
       if (error) {
         toast.error(error.message ?? "Something went wrong!");
         return;
@@ -91,47 +103,41 @@ function UserForm(props: UserFormProps) {
     >
       {type === "signup" && (
         <>
-          <FormGroup
-            labelText="Name"
-            errorText={formError?.name ? formError.name : ""}
-          >
+          <FormGroup labelText="Name" errorText={formError?.name}>
             <input
               type="text"
               name="name"
               className="input w-full"
               placeholder="Abdur Rahman"
+              disabled={isLoading}
             />
           </FormGroup>
 
-          <FormGroup
-            labelText="Profile Image URL"
-            errorText={formError?.image ? formError.image : ""}
-          >
+          <FormGroup labelText="Profile Image URL" errorText={formError?.image}>
             <input
               type="text"
               name="imageUrl"
               className="input w-full"
               placeholder="https://picsum.photos/200"
+              disabled={isLoading}
             />
           </FormGroup>
         </>
       )}
 
-      <FormGroup
-        labelText="Email"
-        errorText={formError?.email ? formError.email : ""}
-      >
+      <FormGroup labelText="Email" errorText={formError?.email}>
         <input
           type="email"
           name="email"
           className="input w-full"
           placeholder="you@example.com"
+          disabled={isLoading}
         />
       </FormGroup>
 
       <FormGroup
         labelText="Password"
-        errorText={formError?.password ? formError.password : ""}
+        errorText={formError?.password}
         labelExtraEl={
           type === "signin" && (
             <Link href="#" className="link link-hover text-xs text-gray-700">
@@ -145,7 +151,7 @@ function UserForm(props: UserFormProps) {
           name="password"
           placeholder="Your password"
           className="input input-bordered w-full"
-          required
+          disabled={isLoading}
         />
         <p className="text-xs text-gray-500">
           Min 6 characters with one Uppercase and one Lowercase letter.
@@ -153,21 +159,21 @@ function UserForm(props: UserFormProps) {
       </FormGroup>
 
       {type === "signup" && (
-        <FormGroup
-          labelText="Confirm Password"
-          errorText={formError?.password ? formError.password : ""}
-        >
+        <FormGroup labelText="Confirm Password" errorText={formError?.password}>
           <input
             type="password"
             name="confirm-password"
             placeholder="Confirm Your Password"
             className="input input-bordered w-full"
-            required
+            disabled={isLoading}
           />
         </FormGroup>
       )}
 
       <button className="btn bg-primary text-primary-content hover:bg-primary-hover w-full">
+        {isLoading && (
+          <span className="loading loading-spinner loading-xs"></span>
+        )}
         {type === "signin" ? "Sign In" : "Sign Up"}
       </button>
     </form>

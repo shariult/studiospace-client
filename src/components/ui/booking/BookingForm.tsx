@@ -8,7 +8,7 @@ import {
   PiNotePencil,
 } from "react-icons/pi";
 import FormGroup from "@/components/ui/form/FormGroup";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, isValidNum, isValidStr } from "@/lib/utils";
 import { bookingStore } from "@/lib/bookingActions";
 import { TBookingInput } from "@/types";
 import toast from "react-hot-toast";
@@ -19,6 +19,7 @@ type BookingFormProps = {
   title: string;
   hourlyRate: number;
   deposit: number;
+  hostId: string;
   studioId: string;
   className?: string;
   ref?: React.Ref<HTMLDialogElement>;
@@ -28,14 +29,24 @@ const toMinutes = (time: string) => {
   const [h, m] = time.split(":").map((item) => Number(item));
   return h * 60 + m;
 };
+type BookingFormErrors = Partial<Record<keyof TBookingInput, string>>;
 
 function BookingForm(props: BookingFormProps) {
-  const { data } = authClient.useSession();
-
-  const { title, hourlyRate, deposit, studioId, className, ref, ...rest } =
-    props;
+  const {
+    title,
+    hourlyRate,
+    deposit,
+    hostId,
+    studioId,
+    className,
+    ref,
+    ...rest
+  } = props;
+  const [isLoading, setIsLoading] = useState(false);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  const [formError, setFormError] = useState<BookingFormErrors>();
+  const { data } = authClient.useSession();
   const today = new Date().toLocaleDateString("en-CA");
 
   const hasBothTimes = startTime && endTime ? true : false;
@@ -52,12 +63,12 @@ function BookingForm(props: BookingFormProps) {
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!isRangeValid) return;
+    setIsLoading(true);
 
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    const data: TBookingInput = {
+    const formDataObj: TBookingInput = {
       date: formData.get("date") as string,
       startTime: formData.get("startTime") as string,
       endTime: formData.get("endTime") as string,
@@ -65,19 +76,46 @@ function BookingForm(props: BookingFormProps) {
       notes: formData.get("notes") as string,
       status: "pending",
       studioId,
+      hostId,
       hours,
       subtotal,
       deposit,
       total,
     };
 
-    const res = await bookingStore(data);
+    const errObj: BookingFormErrors = {
+      date: !isValidStr(formDataObj.date)
+        ? "Please enter a valid date."
+        : undefined,
+      startTime: !isRangeValid ? "Please enter a valid start time." : undefined,
+      endTime: !isRangeValid ? "Please enter a valid end time." : undefined,
+      expectedCrew: !isValidNum(formDataObj.expectedCrew, 1)
+        ? "Please enter a expected crew."
+        : undefined,
+      status: !isValidStr(formDataObj.status)
+        ? "Please enter a valid status."
+        : undefined,
+    };
+
+    const hasError = Object.values(errObj).some((error) => error !== undefined);
+    if (hasError) {
+      setIsLoading(false);
+      setFormError(errObj);
+      toast.error("Please check form inputs!");
+      return;
+    }
+
+    const res = await bookingStore(formDataObj);
     if (res.isSuccess) {
       formEl.reset();
+      setIsLoading(false);
       setStartTime("");
       setEndTime("");
       toast.success("Booking request submitted!");
       formEl.closest("dialog")?.close();
+    } else {
+      setIsLoading(false);
+      toast.error("Booking request submission failed!");
     }
   }
 
@@ -128,15 +166,23 @@ function BookingForm(props: BookingFormProps) {
               onSubmit={handleSubmit}
               onReset={handleReset}
             >
-              <FormGroup labelText="Date" errorText={""}>
+              <FormGroup labelText="Date" errorText={formError?.date}>
                 <label className="input w-full">
                   <PiCalendarBlank className="opacity-50" />
-                  <input type="date" name="date" min={today} required />
+                  <input
+                    type="date"
+                    name="date"
+                    min={today}
+                    disabled={isLoading}
+                  />
                 </label>
               </FormGroup>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <FormGroup labelText="Start Time" errorText={""}>
+                <FormGroup
+                  labelText="Start Time"
+                  errorText={formError?.startTime}
+                >
                   <label className="input w-full">
                     <PiClock className="opacity-50" />
                     <input
@@ -144,12 +190,12 @@ function BookingForm(props: BookingFormProps) {
                       name="startTime"
                       value={startTime}
                       onChange={(e) => setStartTime(e.target.value)}
-                      required
+                      disabled={isLoading}
                     />
                   </label>
                 </FormGroup>
 
-                <FormGroup labelText="End Time" errorText={timeError}>
+                <FormGroup labelText="End Time" errorText={formError?.endTime}>
                   <label className="input w-full">
                     <PiClock className="opacity-50" />
                     <input
@@ -157,13 +203,16 @@ function BookingForm(props: BookingFormProps) {
                       name="endTime"
                       value={endTime}
                       onChange={(e) => setEndTime(e.target.value)}
-                      required
+                      disabled={isLoading}
                     />
                   </label>
                 </FormGroup>
               </div>
 
-              <FormGroup labelText="Expected Crew" errorText={""}>
+              <FormGroup
+                labelText="Expected Crew"
+                errorText={formError?.expectedCrew}
+              >
                 <label className="input w-full">
                   <PiUsers className="opacity-50" />
                   <input
@@ -171,18 +220,19 @@ function BookingForm(props: BookingFormProps) {
                     name="expectedCrew"
                     min={1}
                     placeholder="Number of people"
-                    required
+                    disabled={isLoading}
                   />
                 </label>
               </FormGroup>
 
-              <FormGroup labelText="Notes" errorText={""}>
+              <FormGroup labelText="Notes" errorText={undefined}>
                 <label className="textarea w-full">
                   <PiNotePencil className="opacity-50" />
                   <textarea
                     name="notes"
                     rows={3}
                     placeholder="Equipment, setup needs, or anything the host should know..."
+                    disabled={isLoading}
                   />
                 </label>
               </FormGroup>
@@ -215,7 +265,11 @@ function BookingForm(props: BookingFormProps) {
                 type="submit"
                 form="booking-form"
                 className="btn btn-primary"
+                disabled={isLoading}
               >
+                {isLoading && (
+                  <span className="loading loading-spinner loading-xs"></span>
+                )}
                 Request Booking
               </button>
             </div>
