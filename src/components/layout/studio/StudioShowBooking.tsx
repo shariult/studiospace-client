@@ -1,7 +1,6 @@
 "use client";
 
 import React, { ComponentPropsWithoutRef, useRef } from "react";
-import { PiCheckCircle } from "react-icons/pi";
 import Container from "@/components/ui/common/Container";
 import { formatPrice } from "@/lib/utils";
 import { TStudio } from "@/types";
@@ -76,6 +75,7 @@ function StudioShowBooking(props: StudioShowBookingProps) {
         title={data.title}
         hourlyRate={data.hourlyRate}
         deposit={data.deposit}
+        studioId={data._id}
       />
     </Container>
   );

@@ -9,11 +9,15 @@ import {
 } from "react-icons/pi";
 import FormGroup from "@/components/ui/form/FormGroup";
 import { formatPrice } from "@/lib/utils";
+import { bookingStore } from "@/lib/bookingActions";
+import { TBookingInput } from "@/types";
+import toast from "react-hot-toast";
 
 type BookingFormProps = {
   title: string;
   hourlyRate: number;
   deposit: number;
+  studioId: string;
   className?: string;
   ref?: React.Ref<HTMLDialogElement>;
 } & Omit<ComponentPropsWithoutRef<"dialog">, "title">;
@@ -24,7 +28,8 @@ const toMinutes = (time: string) => {
 };
 
 function BookingForm(props: BookingFormProps) {
-  const { title, hourlyRate, deposit, className, ref, ...rest } = props;
+  const { title, hourlyRate, deposit, studioId, className, ref, ...rest } =
+    props;
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const today = new Date().toLocaleDateString("en-CA");
@@ -41,31 +46,35 @@ function BookingForm(props: BookingFormProps) {
   const subtotal = hours * hourlyRate;
   const total = subtotal + deposit;
 
-  function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!isRangeValid) return;
 
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    const data = {
-      date: formData.get("date"),
-      startTime: formData.get("startTime"),
-      endTime: formData.get("endTime"),
+    const data: TBookingInput = {
+      date: formData.get("date") as string,
+      startTime: formData.get("startTime") as string,
+      endTime: formData.get("endTime") as string,
       expectedCrew: Number(formData.get("expectedCrew")),
-      notes: formData.get("notes"),
+      notes: formData.get("notes") as string,
+      status: "pending",
+      studioId,
       hours,
       subtotal,
       deposit,
       total,
     };
 
-    console.log(data);
-
-    formEl.reset();
-    setStartTime("");
-    setEndTime("");
-    formEl.closest("dialog")?.close();
+    const res = await bookingStore(data);
+    if (res.isSuccess) {
+      formEl.reset();
+      setStartTime("");
+      setEndTime("");
+      toast.success("Booking submission successful and Pending!");
+      formEl.closest("dialog")?.close();
+    }
   }
 
   const handleReset = () => {

@@ -46,10 +46,17 @@ type TBooking = {
   startTime: string;
   endTime: string;
   status: TBookingStatus;
-  price: number;
+  notes: string;
+  expectedCrew: number;
+  hours: number;
+  subtotal: number;
+  deposit: number;
+  total: number;
   studioId: string;
   userId: string;
 };
+
+type TBookingInput = Omit<TBooking, "_id" | "userId">;
 
 export {
   type ActionResult,
@@ -58,4 +65,5 @@ export {
   type TStudio,
   type TBooking,
   type TBookingStatus,
+  type TBookingInput,
 };
