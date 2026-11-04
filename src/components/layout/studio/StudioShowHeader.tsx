@@ -16,7 +16,7 @@ function StudioShowHeader(props: StudioShowHeaderProps) {
     <Container
       el={"header"}
       className="px-6"
-      boxClassName={`space-y-3 bg-gray-50 rounded-lg ${className ? className : ""}`}
+      boxClassName={`space-y-3 bg-gray-50 dark:bg-gray-900 rounded-lg ${className ? className : ""}`}
       setYSpace="py-12"
       {...rest}
     >

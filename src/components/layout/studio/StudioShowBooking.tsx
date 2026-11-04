@@ -26,7 +26,7 @@ function StudioShowBooking(props: StudioShowBookingProps) {
       {...rest}
     >
       <aside className="lg:sticky lg:top-6">
-        <div className="card border border-base-300 bg-base-100">
+        <div className="card border border-base-300 bg-gray-50 dark:bg-gray-900">
           <div className="card-body gap-5 p-5">
             <div>
               <span className="text-2xl font-semibold">

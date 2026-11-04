@@ -14,10 +14,10 @@ function FeatureCard(props: FeatureCardProps) {
   const ReactIcon = icon;
   return (
     <div
-      className={`flex gap-3 bg-gray-50 p-6 rounded-md shadow ${className ? className : ""}`}
+      className={`flex gap-3 bg-gray-50 dark:bg-gray-800 p-6 rounded-md shadow ${className ? className : ""}`}
       {...rest}
     >
-      <div className="text-xl p-3 rounded-full bg-gray-100 self-start text-primary">
+      <div className="text-xl p-3 rounded-full bg-gray-100 dark:bg-gray-900/60 self-start text-primary">
         <ReactIcon />
       </div>
       <div>

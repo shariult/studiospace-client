@@ -18,7 +18,7 @@ async function MyListingsPage() {
     <Container>
       <h1 className="mb-6 text-2xl font-semibold">My Listings</h1>
 
-      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 dark:bg-gray-900">
         <table className="table">
           <thead>
             <tr>

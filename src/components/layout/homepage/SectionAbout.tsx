@@ -15,6 +15,7 @@ function SectionAbout(props: SectionAboutProps) {
   return (
     <Container
       id="about"
+      className="dark:bg-gray-800"
       boxClassName="grid grid-cols-1 md:grid-cols-2 gap-8"
       {...rest}
     >
@@ -40,7 +41,7 @@ function SectionAbout(props: SectionAboutProps) {
           together on one transparent platform.
         </p>
 
-        <div className="stats shadow w-full md:p-8">
+        <div className="stats shadow w-full md:p-8 dark:bg-gray-900">
           <StatCard value="500+" caption="Studios" />
           <StatCard value="12k" caption="Bookings" />
           <StatCard value="4.8" caption="Avg. rating" />

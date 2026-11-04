@@ -25,11 +25,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${josefinSans.variable} ${inter.variable} h-full antialiased`}
+      className={`${josefinSans.variable} ${inter.variable} h-full antialiased text-gray-900 dark:text-gray-50`}
     >
       <body>
         <Navbar />
-        <main className="min-h-[60vh]">{children}</main>
+        <main className="min-h-[60vh] dark:bg-gray-950">{children}</main>
         <Footer />
         <ToasterProvider />
       </body>

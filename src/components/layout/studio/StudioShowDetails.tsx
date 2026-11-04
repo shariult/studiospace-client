@@ -19,21 +19,21 @@ function StudioShowDetails(props: StudioShowDetailsProps) {
 
   return (
     <Container
-      className="px-6"
+      className="px-6 "
       boxClassName={`grid items-start gap-8 lg:grid-cols-3 ${className ? className : ""}`}
       setYSpace="pt-6 pb-20"
       setXSpace=""
       {...rest}
     >
       <div className="space-y-8 lg:col-span-2">
-        <div className="space-y-3 p-6 rounded-md bg-gray-50">
+        <div className="space-y-3 p-6 rounded-md bg-gray-50 dark:bg-gray-900">
           <h2 className="text-xl font-semibold">Overview</h2>
           <p className="max-w-prose leading-relaxed text-base-content/80">
             {data.overview}
           </p>
         </div>
 
-        <div className="space-y-3 p-6 rounded-md bg-gray-50">
+        <div className="space-y-3 p-6 rounded-md bg-gray-50 dark:bg-gray-900">
           <h2 className="text-xl font-semibold">Amenities</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {data.amenities.map((amenity) => (
@@ -48,7 +48,7 @@ function StudioShowDetails(props: StudioShowDetailsProps) {
           </ul>
         </div>
 
-        <div className="space-y-3 p-6 rounded-md bg-gray-50">
+        <div className="space-y-3 p-6 rounded-md bg-gray-50 dark:bg-gray-900">
           <h2 className="text-xl font-semibold">About Host</h2>
           <div className="flex gap-2 items-center">
             <div className="text-xlrounded-full bg-gray-100 self-start text-primary">

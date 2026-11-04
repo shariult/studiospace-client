@@ -41,7 +41,7 @@ function StudioShowImage(props: StudioShowImageProps) {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-box border border-base-300 bg-base-100 p-4"
+            className="rounded-box border border-base-300 bg-base-100 p-4 dark:bg-gray-900"
           >
             <dt className="text-sm text-base-content/70">{stat.label}</dt>
             <dd className="mt-1 text-xl font-semibold">{stat.value}</dd>

@@ -17,7 +17,7 @@ function StudioCard(props: StudioCardProps) {
 
   return (
     <div
-      className={`card bg-base-100 border border-base-300 overflow-hidden ${
+      className={`card bg-gray-100 dark:bg-gray-800 dark:text-gray-50 border border-base-300 overflow-hidden ${
         className ?? ""
       }`}
       {...rest}
@@ -43,7 +43,7 @@ function StudioCard(props: StudioCardProps) {
             {data.title}
           </Link>
         </h3>
-        <p className="flex items-center gap-1 text-sm text-gray-700 mb-2">
+        <p className="flex items-center gap-1 text-sm text-gray-700 dark:text-gray-400 mb-2">
           <PiMapPin /> {data.address}
         </p>
 
@@ -69,7 +69,10 @@ function StudioCard(props: StudioCardProps) {
             <span className="text-lg font-semibold">
               {formatPrice(data.hourlyRate)}
             </span>
-            <span className="text-sm text-gray-600/80"> / hour</span>
+            <span className="text-sm text-gray-600/80 dark:text-gray-400">
+              {" "}
+              / hour
+            </span>
           </p>
 
           <Link href={href} className="btn-fill-primary btn-sm">

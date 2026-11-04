@@ -13,11 +13,11 @@ function CategoryCard(props: CategoryCardProps) {
   return (
     <Link
       href={href}
-      className={`flex flex-col justify-center items-center text-center bg-gray-50 p-6 shadow rounded-md hover:scale-105 ${className ? className : ""}`}
+      className={`flex flex-col justify-center items-center text-center bg-gray-50 dark:bg-gray-700 p-6 shadow rounded-md hover:scale-105 ${className ? className : ""}`}
       key={data.id}
       {...rest}
     >
-      <span className="inline-block text-3xl mb-3 p-3 rounded-full text-primary bg-gray-100">
+      <span className="inline-block text-3xl mb-3 p-3 rounded-full text-primary bg-gray-100 dark:bg-gray-800">
         <Icon />
       </span>
       <h3 className="heading-3 mb-1">{data.title}</h3>

@@ -1,6 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { PiTwitterLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
+import {
+  PiTwitterLogo,
+  PiInstagramLogo,
+  PiYoutubeLogo,
+  PiXLogo,
+} from "react-icons/pi";
 import CompanyLogo from "@/components/ui/common/CompanyLogo";
 import Container from "@/components/ui/common/Container";
 import FeatureCard from "./FeatureCard";
@@ -15,7 +20,7 @@ function Footer() {
   return (
     <>
       <Container
-        className="bg-gray-100"
+        className="bg-gray-100 dark:bg-gray-900"
         boxClassName="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
         setYSpace="py-10"
       >
@@ -52,7 +57,7 @@ function Footer() {
 
           <div>
             <h6 className="footer-title">Quick Links</h6>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <li>
                 <Link className="link link-hover" href="/">
                   Home
@@ -83,7 +88,7 @@ function Footer() {
 
           <div>
             <h6 className="footer-title">Popular Categories</h6>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <li>
                 <Link
                   className="link link-hover"
@@ -133,21 +138,21 @@ function Footer() {
               <div className="flex gap-2">
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
                   aria-label="X"
                 >
-                  <PiTwitterLogo className="text-lg" />
+                  <PiXLogo className="text-lg" />
                 </Link>
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
                   aria-label="Instagram"
                 >
                   <PiInstagramLogo className="text-lg" />
                 </Link>
                 <Link
                   href="#"
-                  className="btn btn-circle btn-ghost p-2 border border-gray-300"
+                  className="btn btn-circle btn-ghost p-2 border border-gray-300 hover:bg-primary"
                   aria-label="YouTube"
                 >
                   <PiYoutubeLogo className="text-lg" />

@@ -14,7 +14,7 @@ function PageHeader(props: PageHeaderProps) {
   const { heading, details, breadcrumbs, className, ...rest } = props;
 
   return (
-    <Container el={"header"} className="bg-gray-100" {...rest}>
+    <Container el={"header"} className="bg-gray-100 dark:bg-gray-800" {...rest}>
       <Breadcrumbs data={breadcrumbs} className="mb-12" />
 
       <h2 className="heading-2 capitalize">{heading}</h2>
