@@ -21,14 +21,14 @@ function NavToggle() {
   }
 
   return (
-    <label className="swap swap-rotate mr-4">
+    <label className="swap swap-rotate md:mr-4">
       <input
         type="checkbox"
         checked={theme === "dark"}
         onChange={themeChangeHandler}
       />
-      <SunSVG className="swap-off h-6 w-6 fill-current " />
-      <MoonSVG className="swap-on h-6 w-6 fill-current" />
+      <SunSVG className="swap-off h-5 w-5 md:h-6 md:w-6 fill-current " />
+      <MoonSVG className="swap-on h-5 w-5 md:h-6 md:w-6 fill-current" />
     </label>
   );
 }

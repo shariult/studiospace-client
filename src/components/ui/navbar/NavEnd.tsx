@@ -41,7 +41,7 @@ function NavEnd(props: NavEndProps) {
     return (
       <div className={`navbar-end ${className ? className : ""}`} {...rest}>
         <NavToggle />
-        <div className={`flex flex-wrap sm:flex-nowrap gap-1 `}>
+        <div className={`flex sm:flex-nowrap gap-1`}>
           <Link href="/signup" className="btn btn-ghost btn-sm md:btn-md">
             Sign Up
           </Link>
