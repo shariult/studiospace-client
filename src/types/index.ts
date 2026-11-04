@@ -35,18 +35,20 @@ type TStudio = {
   amenities: string[];
   overview: string;
   rating: number;
+  userId: string;
 };
 
 type TBookingStatus = "pending" | "approved" | "rejected" | "cancelled";
 
 type TBooking = {
-  id: string;
-  studio: { title: string; address: string; imageUrl: string };
+  _id: string;
   date: string;
   startTime: string;
   endTime: string;
   status: TBookingStatus;
   price: number;
+  studioId: string;
+  userId: string;
 };
 
 export {

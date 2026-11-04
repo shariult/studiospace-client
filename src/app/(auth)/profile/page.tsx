@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import UserDemoImg from "@/components/ui/user/UserDemoImg";
-import { getCurrentUser } from "@/lib/userActions";
+import { getCurrentUser } from "@/lib/authActions";
 import ProfileForm from "@/components/ui/user/ProfileForm";
 import ProfileSignOut from "@/components/ui/user/ProfileSignOut";
 

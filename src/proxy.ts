@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/userActions";
+import { getCurrentUser } from "@/lib/authActions";
 
 export async function proxy(req: NextRequest) {
   const session = await getCurrentUser();

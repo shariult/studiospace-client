@@ -1,6 +1,6 @@
 import { TStudio } from "@/types";
 import { sendRequest } from "./utils";
-import { getTokenFromServer } from "./userActions";
+import { getTokenFromServer } from "./authActions";
 
 async function studioIndex() {
   const data = await sendRequest<TStudio[]>("/studio");
