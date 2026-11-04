@@ -2,8 +2,8 @@ import { TStudio } from "@/types";
 import { sendRequest } from "./utils";
 import { getTokenFromServer } from "./authActions";
 
-async function studioIndex() {
-  const data = await sendRequest<TStudio[]>("/studio");
+async function studioIndex(url?: string | null) {
+  const data = await sendRequest<TStudio[]>(url ?? "/studio");
   return data;
 }
 
