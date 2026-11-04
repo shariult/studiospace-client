@@ -13,6 +13,8 @@ function BookingTable(props: BookingTableProps) {
 
   return (
     <Container
+      setYSpace="py-0"
+      setXSpace="px-0"
       boxClassName={`overflow-x-auto rounded-box border border-base-content/5 bg-base-100 ${className ? className : ""}`}
       {...rest}
     >

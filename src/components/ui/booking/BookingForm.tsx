@@ -72,7 +72,7 @@ function BookingForm(props: BookingFormProps) {
       formEl.reset();
       setStartTime("");
       setEndTime("");
-      toast.success("Booking submission successful and Pending!");
+      toast.success("Booking request submitted!");
       formEl.closest("dialog")?.close();
     }
   }
