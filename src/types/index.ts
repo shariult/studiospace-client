@@ -35,7 +35,7 @@ type TStudio = {
   amenities: string[];
   overview: string;
   rating: number;
-  userId: string;
+  userId?: string;
 };
 
 type TBookingStatus = "pending" | "approved" | "rejected" | "cancelled";
