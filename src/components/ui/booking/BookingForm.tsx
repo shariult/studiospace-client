@@ -115,7 +115,10 @@ function BookingForm(props: BookingFormProps) {
       formEl.closest("dialog")?.close();
     } else {
       setIsLoading(false);
-      toast.error("Booking request submission failed!");
+      errObj.endTime = res.error || "Booking request submission failed!";
+      errObj.startTime = res.error || "Booking request submission failed!";
+      setFormError(errObj);
+      // toast.error(res.error || "Booking request submission failed!");
     }
   }
 

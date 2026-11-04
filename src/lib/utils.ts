@@ -11,9 +11,12 @@ async function sendRequest<T>(
     );
 
     if (!res.ok) {
+      let message = `Request failed (${res.status})`;
+      const body = await res.json();
+      message = body.message || message;
       return {
         isSuccess: false,
-        error: `Request failed (${res.status})`,
+        error: message,
       };
     }
 
