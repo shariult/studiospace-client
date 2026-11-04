@@ -27,7 +27,7 @@ function Container<C extends ElementType>(props: ContainerProps<C>) {
   }
 
   return (
-    <El className={`px-6 xl:px-0 ${classes}`} {...rest}>
+    <El className={`${classes}`} {...rest}>
       <div
         className={`max-w-330 mx-auto ${setXSpace ?? "px-6"} ${setYSpace ?? "py-20"} ${boxClassName ? boxClassName : ""}`}
       >

@@ -6,6 +6,7 @@ import { studioIndex } from "@/lib/studioActions";
 import { notFound } from "next/navigation";
 import StudioIndexCategory from "@/components/layout/studio/StudioIndexCategory";
 import StudioResetButton from "@/components/ui/studio/StudioResetButton";
+import { getCurrentUser } from "@/lib/authActions";
 
 type StudioIndexPageProps = {
   searchParams: Promise<{ category: string }>;
@@ -14,6 +15,8 @@ type StudioIndexPageProps = {
 async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
   const { category } = await searchParams;
   const catQuery = category ? `/studio?category=${category}` : null;
+
+  const session = await getCurrentUser();
 
   const res = await studioIndex(catQuery);
   if (!res.isSuccess) notFound();
@@ -25,17 +28,17 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
         <SectionTitle
           headingSub="List of Studios"
           heading="Explore Studios"
-          className="pb-8"
+          className="pb-4 md:pb-8"
         />
         <div className="flex flex-col gap-2 self-end">
-          <StudioResetButton />
+          {session && <StudioResetButton />}
           <p className="text-muted text-sm">viewing {studios.length} studios</p>
         </div>
       </div>
 
       <StudioIndexCategory catQuery={category} />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {studios.map((item) => {
           return <StudioCard data={item} key={item._id} />;
         })}

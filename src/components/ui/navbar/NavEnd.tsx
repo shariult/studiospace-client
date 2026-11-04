@@ -14,6 +14,7 @@ import {
 import { authClient } from "@/lib/authClient";
 import UserDemoImg from "../user/UserDemoImg";
 import Loading from "@/components/ui/common/Loading";
+import NavToggle from "./NavToggle";
 
 type NavEndProps = {
   className?: string;
@@ -58,6 +59,8 @@ function NavEnd(props: NavEndProps) {
     <>
       {!isPending && data && (
         <div className={`navbar-end ${className ? className : ""}`} {...rest}>
+          <NavToggle />
+
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost avatar">
               <div className="w-10 rounded-full">

@@ -45,7 +45,7 @@ function BookingTableActions(props: BookingTableActionsProps) {
       </button> */}
 
       <button
-        className={`btn btn-ghost btn-square btn-sm tooltip text-error text-xl`}
+        className={`btn btn-ghost btn-square btn-sm tooltip text-error text-4xl`}
         disabled={bookingData.status !== "pending"}
         onClick={() =>
           (

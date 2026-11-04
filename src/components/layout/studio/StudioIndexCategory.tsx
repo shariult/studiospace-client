@@ -12,7 +12,10 @@ function StudioIndexCategory(props: StudioIndexCategoryProps) {
   const { catQuery, className, children, ...rest } = props;
 
   return (
-    <div className={`flex gap-4 mb-12 ${className ? className : ""}`} {...rest}>
+    <div
+      className={`flex flex-wrap gap-3 md:gap-4 mb-12 ${className ? className : ""}`}
+      {...rest}
+    >
       <Link
         href={"/studios"}
         className={`badge badge-neutral ${!catQuery ? "" : "badge-outline"}`}

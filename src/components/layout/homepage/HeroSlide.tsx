@@ -17,7 +17,7 @@ function HeroSlide(props: HeroSlideProps) {
       <p className="inline-block mb-4 px-4 py-1 text-xs uppercase text-gray-50 tracking-[0.2rem] border border-gray-50 rounded-full self-start">
         Creative Studio Rental
       </p>
-      <h1 className="text-6xl max-w-[16ch] capitalize">{title}</h1>
+      <h1 className="text-4xl md:text-6xl max-w-[16ch] capitalize">{title}</h1>
       <p className="max-w-[40ch] mb-8">{subTitle}</p>
       <div className="btn-box">
         <Link href={"/studios"} className="btn-fill-primary">

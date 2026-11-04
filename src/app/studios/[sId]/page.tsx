@@ -44,7 +44,7 @@ async function StudioShowPage({ params }: StudioShowPageProps) {
 
   return (
     <>
-      <div className="max-w-330 mx-auto py-6">
+      <div className="max-w-330 mx-auto p-6">
         <Breadcrumbs data={breadcrumbData} />
       </div>
       <StudioShowHeader data={studio} />

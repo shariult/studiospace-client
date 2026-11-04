@@ -19,6 +19,7 @@ function StudioShowDetails(props: StudioShowDetailsProps) {
 
   return (
     <Container
+      className="px-6"
       boxClassName={`grid items-start gap-8 lg:grid-cols-3 ${className ? className : ""}`}
       setYSpace="pt-6 pb-20"
       setXSpace=""

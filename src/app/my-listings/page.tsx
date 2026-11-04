@@ -41,14 +41,14 @@ async function MyListingsPage() {
 
             {listings.map((item) => (
               <tr key={item._id}>
-                <td>
+                <td className="min-w-60">
                   <StudioCell
                     imageUrl={item.imageUrl}
                     title={item.title}
                     address={item.address}
                   />
                 </td>
-                <td>
+                <td className="min-w-40">
                   <span className="badge badge-ghost badge-sm">
                     {getCategoryTitle(item.category)}
                   </span>
@@ -57,7 +57,7 @@ async function MyListingsPage() {
                 <td>{formatPrice(item.deposit)}</td>
                 <td>{item.capacity} people</td>
                 <td>
-                  <div className="flex justify-end gap-1">
+                  <div className="flex justify-end gap-1 text-2xl">
                     <Link
                       href={`/studios/${item._id}`}
                       className="btn btn-ghost btn-square btn-sm tooltip text-xl"

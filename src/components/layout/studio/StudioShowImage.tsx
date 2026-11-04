@@ -20,6 +20,7 @@ function StudioShowImage(props: StudioShowImageProps) {
   ];
   return (
     <Container
+      className="px-6"
       boxClassName={`grid gap-6 lg:grid-cols-3 ${className ? className : ""}`}
       setXSpace="px-0"
       setYSpace="py-8"

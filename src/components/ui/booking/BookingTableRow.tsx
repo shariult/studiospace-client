@@ -28,7 +28,7 @@ async function BookingTableRow(props: BookingTableRowProps) {
 
     return (
       <tr {...rest}>
-        <td>
+        <td className="min-w-60">
           <StudioCell
             imageUrl={studio.imageUrl}
             title={studio.title}
@@ -37,7 +37,7 @@ async function BookingTableRow(props: BookingTableRowProps) {
         </td>
 
         <td>
-          <div className="font-medium">{formatDate(item.date)}</div>
+          <div className="font-medium min-w-30">{formatDate(item.date)}</div>
           <div className="text-sm opacity-50">
             {item.startTime} – {item.endTime}
           </div>

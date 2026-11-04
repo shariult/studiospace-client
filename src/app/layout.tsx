@@ -26,7 +26,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${josefinSans.variable} ${inter.variable} h-full antialiased`}
-      data-theme="light"
     >
       <body>
         <Navbar />
