@@ -30,7 +30,6 @@ async function StudioShowPage({ params }: StudioShowPageProps) {
   if (!res.isSuccess) notFound();
 
   const studio = res.data;
-
   const userRes = await userShow(studio.userId!);
   if (!userRes.isSuccess) notFound();
   const host = userRes.data;

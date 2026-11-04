@@ -14,7 +14,7 @@ function UserDemoImg(props: UserDemoImgProps) {
       className={`flex justify-center items-center w-10 h-10 rounded-full bg-primary text-primary-content text-lg ${className ? className : ""}`}
       {...rest}
     >
-      {name[0].toUpperCase()}
+      {name ? name[0].toUpperCase() : "U"}
     </p>
   );
 }

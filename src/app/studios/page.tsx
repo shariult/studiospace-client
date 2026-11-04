@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import StudioIndexCategory from "@/components/layout/studio/StudioIndexCategory";
 import StudioResetButton from "@/components/ui/studio/StudioResetButton";
 import { getCurrentUser } from "@/lib/authActions";
+import EmptyData from "@/components/ui/common/EmptyData";
 
 type StudioIndexPageProps = {
   searchParams: Promise<{ category: string }>;
@@ -38,11 +39,15 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
 
       <StudioIndexCategory catQuery={category} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {studios.map((item) => {
-          return <StudioCard data={item} key={item._id} />;
-        })}
-      </div>
+      {studios.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {studios.map((item) => {
+            return <StudioCard data={item} key={item._id} />;
+          })}
+        </div>
+      )}
+
+      {studios.length <= 0 && <EmptyData message="No product found!" />}
     </Container>
   );
 }
