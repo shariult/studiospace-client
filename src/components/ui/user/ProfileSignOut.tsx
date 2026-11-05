@@ -3,10 +3,12 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import { authClient } from "@/lib/authClient";
+import toast from "react-hot-toast";
 
 function ProfileSignOut() {
   async function signOutHandler() {
     await authClient.signOut();
+    toast.success("Sign out successful!");
     redirect("/");
   }
   return (

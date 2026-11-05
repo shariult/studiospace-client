@@ -15,6 +15,7 @@ import { authClient } from "@/lib/authClient";
 import UserDemoImg from "../user/UserDemoImg";
 import Loading from "@/components/ui/common/Loading";
 import NavToggle from "./NavToggle";
+import toast from "react-hot-toast";
 
 type NavEndProps = {
   className?: string;
@@ -26,6 +27,7 @@ function NavEnd(props: NavEndProps) {
 
   async function signOutHandler() {
     await authClient.signOut();
+    toast.success("Sign out successful!");
     redirect("/");
   }
 
