@@ -7,6 +7,7 @@ import { studios } from "@/data/studios";
 import Breadcrumbs from "@/components/ui/common/Breadcrumbs";
 import { studioShow } from "@/lib/studioActions";
 import { userShow } from "@/lib/userActions";
+import { delay } from "@/lib/utils";
 
 type StudioShowPageProps = {
   params: Promise<{ sId: string }>;

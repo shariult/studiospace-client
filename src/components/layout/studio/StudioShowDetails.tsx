@@ -58,7 +58,7 @@ function StudioShowDetails(props: StudioShowDetailsProps) {
                   alt={host.name}
                   width={48}
                   height={48}
-                  className="rounded-full"
+                  className="w-12 h-12 object-cover rounded-full"
                 />
               ) : (
                 <UserDemoImg name={host.name} />
