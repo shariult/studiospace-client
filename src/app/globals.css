@@ -21,7 +21,7 @@
   color-scheme: dark;
 
   --color-primary: hsl(0, 66%, 47%);
-  --color-primary-content: #fff;
+  --color-primary-content: #eee;
 }
 
 @theme {

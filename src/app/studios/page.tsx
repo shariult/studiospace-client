@@ -73,7 +73,7 @@ async function StudioIndexPage({ searchParams }: StudioIndexPageProps) {
           </div>
         )}
 
-        {studios.length <= 0 && <EmptyData message="No product found!" />}
+        {studios.length <= 0 && <EmptyData message="No Studio found!" />}
       </Container>
     </>
   );

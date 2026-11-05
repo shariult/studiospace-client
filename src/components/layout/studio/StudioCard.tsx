@@ -17,7 +17,7 @@ function StudioCard(props: StudioCardProps) {
 
   return (
     <div
-      className={`card bg-gray-100 dark:bg-gray-800 dark:text-gray-50 border border-base-300 overflow-hidden ${
+      className={`card bg-white dark:bg-gray-800 dark:text-gray-50 border border-base-300 overflow-hidden ${
         className ?? ""
       }`}
       {...rest}
@@ -85,3 +85,37 @@ function StudioCard(props: StudioCardProps) {
 }
 
 export default StudioCard;
+
+export function StudioCardSK() {
+  return (
+    <div className={`card  border border-base-300 overflow-hidden`}>
+      <figure className="relative">
+        <p className="block w-full aspect-3/2 skeleton bg-base-200"></p>
+      </figure>
+
+      <div className="card-body p-4">
+        <h3 className="card-title heading-3 w-full h-12 skeleton"></h3>
+        <p className="flex items-center gap-1 text-sm text-gray-700 dark:text-gray-400 mb-2 w-full h-6 skeleton"></p>
+
+        <ul className="flex flex-wrap justify-between items-center gap-4 mb-2 p-3 text-sm text-muted border-y border-base-300">
+          <li className="flex items-center gap-1.5 w-1/4 h-8 skeleton"></li>
+
+          <li className="flex items-center gap-1.5 w-1/4 h-8 skeleton"></li>
+
+          <li className="flex items-center gap-1.5 w-1/4 h-8 skeleton"></li>
+        </ul>
+
+        <div className="flex items-center justify-between">
+          <p>
+            <span className="inline-block text-lg font-semibold w-16 h-8 skeleton mr-4"></span>
+            <span className="text-sm text-gray-600/80 dark:text-gray-400">
+              / hour
+            </span>
+          </p>
+
+          <p className="btn-fill-primary btn-sm">View details</p>
+        </div>
+      </div>
+    </div>
+  );
+}
