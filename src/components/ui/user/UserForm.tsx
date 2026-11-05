@@ -57,9 +57,10 @@ function UserForm(props: UserFormProps) {
     if (type === "signup") {
       const errObj = {
         name: !isValidStr(formDataObj.name, 1) ? "Invalid name" : undefined,
-        image: !isValidStr(formDataObj.image, 7)
-          ? "Invalid image URL"
-          : undefined,
+        image:
+          formDataObj?.image && !isValidStr(formDataObj.image, 7)
+            ? "Invalid image URL"
+            : undefined,
         email: !isValidEmail(formDataObj.email)
           ? "Email is invalid!"
           : undefined,
@@ -71,7 +72,7 @@ function UserForm(props: UserFormProps) {
         errObj.password = "Passwords do not match!";
       }
       if (!formDataObj.image.startsWith("https://")) {
-        errObj.image = "Invalid image URL!";
+        errObj.image = "Please provide a valid image link !";
       }
       const hasError = Object.values(errObj).some(
         (error) => error !== undefined,
@@ -110,6 +111,7 @@ function UserForm(props: UserFormProps) {
               className="input w-full"
               placeholder="Abdur Rahman"
               disabled={isLoading}
+              required
             />
           </FormGroup>
 
@@ -132,6 +134,7 @@ function UserForm(props: UserFormProps) {
           className="input w-full"
           placeholder="you@example.com"
           disabled={isLoading}
+          required
         />
       </FormGroup>
 
@@ -152,6 +155,7 @@ function UserForm(props: UserFormProps) {
           placeholder="Your password"
           className="input input-bordered w-full"
           disabled={isLoading}
+          required
         />
         <p className="text-xs text-gray-500">
           Min 6 characters with one Uppercase and one Lowercase letter.

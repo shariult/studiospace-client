@@ -158,6 +158,7 @@ function StudioForm(props: StudioFormProps) {
               value={formData.title}
               onChange={inputChangeHandler}
               disabled={isLoading}
+              required
             />
           </label>
         </FormGroup>
@@ -170,6 +171,7 @@ function StudioForm(props: StudioFormProps) {
                 name="category"
                 defaultValue={formData.category}
                 disabled={isLoading}
+                required
               >
                 <option value="" disabled>
                   Pick a Category
@@ -197,6 +199,7 @@ function StudioForm(props: StudioFormProps) {
                 value={formData.capacity}
                 onChange={inputChangeHandler}
                 disabled={isLoading}
+                required
               />
             </label>
           </FormGroup>
@@ -214,6 +217,7 @@ function StudioForm(props: StudioFormProps) {
                 value={formData.hourlyRate}
                 onChange={inputChangeHandler}
                 disabled={isLoading}
+                required
               />
               <span className="badge badge-neutral badge-xs">/ hour</span>
             </label>
@@ -233,6 +237,7 @@ function StudioForm(props: StudioFormProps) {
                 value={formData.deposit}
                 onChange={inputChangeHandler}
                 disabled={isLoading}
+                required
               />
             </label>
           </FormGroup>
@@ -248,6 +253,7 @@ function StudioForm(props: StudioFormProps) {
               value={formData.address}
               onChange={inputChangeHandler}
               disabled={isLoading}
+              required
             />
           </label>
         </FormGroup>
@@ -262,6 +268,7 @@ function StudioForm(props: StudioFormProps) {
               value={formData.imageUrl}
               onChange={inputChangeHandler}
               disabled={isLoading}
+              required
             />
           </label>
         </FormGroup>

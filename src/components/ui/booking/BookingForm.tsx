@@ -176,6 +176,7 @@ function BookingForm(props: BookingFormProps) {
                     name="date"
                     min={today}
                     disabled={isLoading}
+                    required
                   />
                 </label>
               </FormGroup>
@@ -193,6 +194,7 @@ function BookingForm(props: BookingFormProps) {
                       value={startTime}
                       onChange={(e) => setStartTime(e.target.value)}
                       disabled={isLoading}
+                      required
                     />
                   </label>
                 </FormGroup>
@@ -206,6 +208,7 @@ function BookingForm(props: BookingFormProps) {
                       value={endTime}
                       onChange={(e) => setEndTime(e.target.value)}
                       disabled={isLoading}
+                      required
                     />
                   </label>
                 </FormGroup>
@@ -223,6 +226,7 @@ function BookingForm(props: BookingFormProps) {
                     min={1}
                     placeholder="Number of people"
                     disabled={isLoading}
+                    required
                   />
                 </label>
               </FormGroup>
