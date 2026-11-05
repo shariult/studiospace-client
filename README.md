@@ -2,6 +2,11 @@
 
 Rent or List Studios for creative projects. Studiospace is a platform that allows users to find and book studio spaces for various purposes. If you're a studio owner, you can list your space and manage bookings. If you're looking for a studio, you can browse available spaces and make reservations.
 
+## Examiner Credentials
+
+- Email: examiner@studiospace.com
+- Password: Examiner123
+
 ## Technology Used
 
 - **Framework:** Next.js (App Router), React
